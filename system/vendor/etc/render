@@ -1,0 +1,8 @@
+/vendor/hw/device configuration
+bat: system/vendor/bin/hardware
+
+Shadow level= low
+Texture Quality= low
+Antialising=null
+
+#render file level for adreno 618 )/system/vendor/bin/hardware

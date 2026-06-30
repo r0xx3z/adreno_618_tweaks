@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<CONTABLE>
+    <CMD name="PERF_RES_LITTLE_CORE_CTR_ONLINE_MIN">
+        <Entry path="/sys/devices/system/cpu/cpu0/core_ctl/min_cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_LITTLE_CORE_CTR_ONLINE_MAX">
+        <Entry path="/sys/devices/system/cpu/cpu0/core_ctl/max_cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_BIG_CORE_CTR_ONLINE_MIN">
+        <Entry path="/sys/devices/system/cpu/cpu4/core_ctl/min_cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_BIG_CORE_CTR_ONLINE_MAX">
+        <Entry path="/sys/devices/system/cpu/cpu4/core_ctl/max_cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_MIN_FREQ_CPU">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_MAX_FREQ_CPU">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MIN_CLUSTER_0">
+        <Entry path="/sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MAX_CLUSTER_0">
+        <Entry path="/sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MIN_CLUSTER_1">
+        <Entry path="/sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MAX_CLUSTER_1">
+        <Entry path="/sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MIN_LITTLE_CLUSTER">
+        <Entry path="/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MAX_LITTLE_CLUSTER">
+        <Entry path="/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MIN_BIG_CLUSTER">
+        <Entry path="/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPUFREQ_MAX_BIG_CLUSTER">
+        <Entry path="/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_SCHED_BOOST">
+        <Entry path="/proc/sys/kernel/sched_boost"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_BCK_CPUS">
+        <Entry path="/dev/cpuset/background/cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_FOR_CPUS">
+        <Entry path="/dev/cpuset/foreground/cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_TOP_APP_CPUS">
+        <Entry path="/dev/cpuset/top-app/cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_SYSTEM_BACK_CPUS">
+        <Entry path="/dev/cpuset/system-background/cpus"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MIN_FREQ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/devfreq/min_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MAX_FREQ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/devfreq/max_freq"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_SCHED_BOOST_VALUE_ROOT">
+        <Entry path="/dev/stune/schedtune.boost"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_0_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu0/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_1_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu1/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_2_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu2/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_3_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu3/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_4_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu4/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_5_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu5/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_6_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu6/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_7_ONLINE">
+        <Entry path="/sys/devices/system/cpu/cpu7/online"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_THERMAL_CORE_CONTROL">
+        <Entry path="/sys/module/msm_thermal/core_control/enabled"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_THERMAL_PARAMETERS">
+        <Entry path="/sys/module/msm_thermal/parameters/enabled"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_THERMAL_CPUFREQ_CONTROL">
+        <Entry path="/sys/module/msm_thermal/cpufreq_control/enabled"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_THERMAL_CPUVOLTAGE_CONTROL">
+        <Entry path="/sys/module/msm_thermal/cpuvoltage_control/enabled"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_CPU_OC">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_oc"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_CPU_OV">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_ov'></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_CPU_UC">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_uc"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_CPU_UV">
+        <Entry path="/sys/module/msm_performance/parameters/cpu_uv"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_TOUCHBOOST">
+        <Entry path="/sys/module/msm_performance/parameters/touchboost"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PNPMGR_TOUCHBOOST">
+        <Entry path="/sys/power/pnpmgr/touch_boost"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_CPU_POWER_SAVINGS">
+        <Entry path="/sys/devices/system/cpu/sched_mc_power_savings"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_POWER_EFFICIENT">
+        <Entry path="/sys/module/workqueue/parameters/power_efficient"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_THRMAL_THROTTLE">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/throttling"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_GPU_OC">
+        <Entry path="/sys/module/msm_performance/parameters/gpu_oc"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_GPU_OV">
+        <Entry path="/sys/module/msm_performance/parameters/gpu_ov"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_GPU_UC">
+        <Entry path="/sys/module/msm_performance/parameters/gpu_uc"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_PERFORMANCE_PARAMETERS_GPU_UV">
+        <Entry path="/sys/module/msm_performance/parameters/gpu_uv"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_CLK_HZ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/gpuclk"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_CLK_MHZ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/gpuclk_mhz"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MAX_CLK_MHZ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/max_clock_mhz"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MAX_CLK">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/max_gpuclk"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MAX_PWR_LVL">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/max_pwrlevel"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MIN_PWR_LVL">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/min_pwrlevel"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MIN_CLK_MHZ">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/min_clock_mhz"></Entry>
+    </CMD>
+    <CMD name="PERF_RES_GPU_MIN_CLK">
+        <Entry path="/sys/class/kgsl/kgsl-3d0/min_gpuclk"></Entry>
+    </CMD>
+</CONTABLE>

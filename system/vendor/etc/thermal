@@ -1,0 +1,14 @@
+#disable thermals for games packages
+
+hw/bin 6e
+/system/vendor/bin/hardware
+
+thermal paths.sh 0 "thermalserviced"
+thermal paths.sh 0 "thermalservice.rc"
+thermal paths.sh 0 "mi_thermald"
+thermal paths.sh 0 "thermal-engine"
+thermal paths.sh 0 "thermal_factory"
+thermal paths.sh 0 "android.hardware.thermal@1.0-service.rc"
+thermal paths.sh 0 "android.hardware.thermal@2.0-service.rc"
+thermal paths.sh 0 "android.hardware.thermal@3.0-service.rc"
+thermal paths.sh 0 "android.hardware.thermal@4.0-service.rc"
