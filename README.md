@@ -36,13 +36,10 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 # Compatibility
 
-## Supported SoC:
-
-- Qualcomm Snapdragon 732G
-
-## GPU
-
-- Adreno 618
+| ------------- | :------------------------ |
+| SoC     		  | Qualcomm Snapdragon 732G  |
+| GPU     		  | Adreno 618                |
+| OS  | AOSP |
 
 ---
 
