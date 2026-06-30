@@ -36,7 +36,8 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 # Compatibility
 
-| ------------- | :------------------------ |
+| Device                  | Redmi Note 10 Pro                                   |
+| ----------------------- | :---------------------------------------------------------- |
 | SoC     		  | Qualcomm Snapdragon 732G  |
 | GPU     		  | Adreno 618                |
 | OS  | AOSP |
