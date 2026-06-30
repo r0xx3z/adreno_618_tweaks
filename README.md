@@ -34,13 +34,13 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 ---
 
-## Compatibility
+# Compatibility
 
-# Supported SoC:
+## Supported SoC:
 
 - Qualcomm Snapdragon 732G
 
-# GPU:
+## GPU
 
 - Adreno 618
 
@@ -69,8 +69,7 @@ It may increase:
 
 - Temperature
 - Battery consumption
-
-DWYOR (DO WITH YOUR OWN RISK)
+- _DWYOR (DO WITH YOUR OWN RISK)_
 
 ---
 
