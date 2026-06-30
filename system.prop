@@ -1,9 +1,10 @@
 #Reset prop
+
 ro.gpu.model=Adreno (TM) 730
 ro.hardware.gpuname=Adreno (TM) 730
 ro.harware.ram.type=LPPDDR5X
 ro.ram.max.freq=4200 MHz
-ro.board_ram_size=6GB
+ro.board_ram_size=8GB
 ro.product.board=taro
 ro.hardware.chipname=SM8550-AC
 persist.service.pcsync.enable=0
