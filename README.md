@@ -2,7 +2,7 @@
 
 
 
-# 📌 Overview
+# 📌 Overview 📌
 
 This module is specifically designed for devices with an Adreno 618 GPU under the Snapdragon 732G SoC. Its main objective is to maximize graphics performance and reduce system limitations. 
 
@@ -12,7 +12,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 # ⚡ Features ⚡
 
-## GPU/CPU performance boost 🀄
+## GPU/CPU performance boost ⏫
   
 - Direct adjustments to system parameters to improve efficiency and graphics throughput.
 
@@ -44,7 +44,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 ---
 
-# Module installation  🛠️
+# Module installation 🛠️
 
 1. Make sure you have:
 
@@ -54,7 +54,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 2. Flash:
    
 - Magisk Manager
-- KernelSU/N with Magic Mount
+- KernelSU/N Manager with Magic Mount
  
 3. Reboot device 
 
@@ -89,7 +89,7 @@ Testing Team
 
 ## Support:
 
-- Author:[Llorens](https://t.me/@Ll0rens)
+- Author:[Llorens](https://t.me/Ll0rens)
 - Group:[Miranda's Kernel](https://t.me/mir4ndSupport/49)
 
 ---
