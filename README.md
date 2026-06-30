@@ -1,7 +1,9 @@
 <h1 align="center">⛩️ Adreno 618 Performance Module ⛩️</h1>
-<h1 align="center"> ![Qualcomm](banner.png)</h1>
+<p align="center">
+  <img src="banner.png" alt="Qualcomm Banner" width="800"/>
+</p>
 
-
+---
 # 📌 Overview 📌
 
 This module is specifically designed for devices with an Adreno 618 GPU under the Snapdragon 732G SoC. Its main objective is to maximize graphics performance and reduce system limitations. 
