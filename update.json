@@ -1,6 +1,6 @@
 {
-  "version": "v1.0",
+  "version": "1.0",
   "versionCode": 1,
-  "zipUrl": "https://github.com/r0xx3z/adreno_618_tweaks/raw/master/install.zip",
-  "changelog": "https://github.com/r0xx3z/adreno_618_tweaks/raw/master/CHANGELOG.md"
+  "zipUrl": "https://raw.githubusercontent.com/r0xx3z/adreno_618_tweaks/Major/install.zip",
+  "changelog": "https://raw.githubusercontent.com/r0xx3z/adreno_618_tweaks/Major/CHANGELOG.md"
 }
