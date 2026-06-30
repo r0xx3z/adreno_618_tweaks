@@ -1,5 +1,5 @@
 <h1 align="center">⛩️ Adreno 618 Performance Module ⛩️</h1>
-
+<h1 align="center"> ![Qualcomm](banner.png)</h1>
 
 
 # 📌 Overview 📌
