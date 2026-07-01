@@ -4,4 +4,6 @@ version=v1.1
 versionCode=1
 author=@Ll0rens
 description=Tweaks for GPU + LM + Thermal tuning + Spoofer: Snapdragon 8 Gen 2
+updateJson=https://raw.githubusercontent.com/r0xx3z/adreno_618_tweaks/update.json
+minMagisk=20.4
 banner=banner.png
