@@ -79,7 +79,6 @@ ro.product.odm.marketname=Xiaomi 13 Pro
 ro.product.vendor.marketname=Xiaomi 13 Pro
 ro.product.system.marketname=Xiaomi 13 Pro
 ro.product.system_ext.marketname=Xiaomi 13 Pro
-ro.sf.lcd_density=480
 ro.audio.monitorRotation=false
 ro.vendor.audio.us.proximity=false
 ro.vendor.touchfeature.type=16
