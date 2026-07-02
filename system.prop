@@ -236,4 +236,3 @@ power.saving.mode=0
 effect.reverb.pcm=1
 SurfaceOrientation=0
 QuietInterval=0.1ms
-wifi.supplicant_scan_interval=5500
