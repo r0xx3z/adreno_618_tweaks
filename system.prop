@@ -81,7 +81,6 @@ ro.product.system.marketname=Xiaomi 13 Pro
 ro.product.system_ext.marketname=Xiaomi 13 Pro
 ro.audio.monitorRotation=false
 ro.vendor.audio.us.proximity=false
-ro.vendor.touchfeature.type=16
 ro.soc.manufacturer=Qualcomm
 ro.soc.model=SM8550-AC
 ro.vendor.fps.switch.thermal=false
@@ -104,12 +103,10 @@ ro.vendor.platform.support.dolby=true
 ro.vendor.platform.support.dts=true
 ro.vendor.radio.features_common=3
 ro.vendor.thermal.dimming.enable=false
-ro.vendor.display.touch.idle.enable=true
 ro.vendor.fps.switch.thermal=false
 ro.vendor.dolby.vision.support=true
 ro.logd.size=1M
 ro.vendor.qti.sys.fw.bservice_enable=true
-ro.sf.compbypass.enable=0
 
 vendor.dolby.vision.support=true
 vendor.gralloc.disable_ubwc=0
@@ -157,7 +154,6 @@ persist.cpu.perf.debug=false
 persist.gpu.perf.debug=false
 persist.hw.perf.debug=false
 persist.vendor.qti.inputopts.enable=true
-persist.vendor.qti.inputopts.movetouchslop=0.6
 persist.vendor.color.matrix=2
 persist.sys.composition.type=gpu
 
@@ -204,24 +200,8 @@ logcat.live=disable
 log.tag.stats_log=OFF
 logd.logpersistd.enable=false
 
-touch.pressure.scale=0.0001
-touch.orientationAware=0
-touch.size.calibration=geometric
-touch.size.scale=1
-touch.size.bias=0
-touch.size.isSummed=0
-touch.orientation.calibration=interpolated
-touch.distance.calibration=area
-touch.distance.scale=0
-touch.coverage.calibration=box
-touch.gestureMode=spots
-touch.pressure.calibration=amplitude
-touch.deviceType=touchScreen
-
 hwui.render_dirty_regions=false
 
-MultitouchMinDistance=1px
-MultitouchSettleInterval=0.1ms
 media.support.dolbyvision=true
 MovementSpeedRatio=0.8
 
