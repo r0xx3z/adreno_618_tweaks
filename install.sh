@@ -49,6 +49,13 @@ SKIPUNZIP=1
 unzip -qjo "$ZIPFILE" 'common/functions.sh' -d $TMPDIR >&2
 . $TMPDIR/functions.sh
 
+set_permissions() {
+  set_perm_recursive $MODPATH 0 0 0755 0644
+  set_perm $MODPATH/service.sh 0 0 0777
+  set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
+  set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
+}
+
 sleep 2
 ui_print "************         **************"
 ui_print "      SUCESSFULLY INSTALLED." 
