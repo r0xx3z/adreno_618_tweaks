@@ -25,7 +25,7 @@ echo "1" > /sys/devices/system/cpu/cpu4/online
 echo "1" > /sys/devices/system/cpu/cpu5/online
 echo "1" > /sys/devices/system/cpu/cpu6/online
 echo "1" > /sys/devices/system/cpu/cpu7/online
-#Kryo 470 silver cluster (cpu0-3) - SM7150-AC Redmi Note 10 Pro - real table: 300000 576000 768000 1017600 1248000 1324800 1497600 1612800 1708800 1804800 MHz
+#Kryo 470 silver cluster (cpu0-3) - SM6150-AC Redmi Note 10 Pro - real table: 300000 576000 768000 1017600 1248000 1324800 1497600 1612800 1708800 1804800 MHz
 chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
 chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
 chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
@@ -42,7 +42,7 @@ echo "1804800" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
 echo "300000" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
 echo "1804800" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
 echo "300000" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
-#Kryo 470 gold cluster (cpu4-7) - SM7150-AC Redmi Note 10 Pro - real table: 300000 652800 806400 979200 1094400 1209600 1324800 1555200 1708800 1843200 1939200 2169600 2208000 2304000 MHz
+#Kryo 470 gold cluster (cpu4-7) - SM6150-AC Redmi Note 10 Pro - real table: 300000 652800 806400 979200 1094400 1209600 1324800 1555200 1708800 1843200 1939200 2169600 2208000 2304000 MHz
 chmod 644 /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
 chmod 644 /sys/devices/system/cpu/cpu4/cpufreq/scaling_min_freq
 chmod 644 /sys/devices/system/cpu/cpu5/cpufreq/scaling_max_freq
@@ -353,13 +353,27 @@ echo "1" > /sys/class/power_supply/battery/subsystem/usb/pd_allowed
 echo "0" > /sys/class/power_supply/battery/input_current_limited
 echo "1" > /sys/class/power_supply/battery/input_current_settled
 echo "0" > /sys/class/qcom-battery/restricted_charging
-echo "-100" > /sys/class/power_supply/bms/temp_cool
-echo "450" > /sys/class/power_supply/bms/temp_hot
-echo "450" > /sys/class/power_supply/bms/temp_warm
+echo "150" > /sys/class/power_supply/bms/temp_cool
+echo "480" > /sys/class/power_supply/bms/temp_hot
+echo "480" > /sys/class/power_supply/bms/temp_warm
 echo "1" > /sys/class/power_supply/bms/fastcharge_mode
 echo "1" > /sys/class/power_supply/battery/fastcharge_mode
 echo "1" > /sys/class/power_supply/battery/step_charging_enabled
 echo "1" > /sys/class/power_supply/bms/step_charging_enabled
+
+## Sweet 33w by ExoticGank##
+sh /system/etc/.nth_fc/.fc_main.sh
+ext() 
+{
+    if [ -f ${2} ]; then
+        chmod 0666 ${2}
+        echo ${1} > ${2}
+        chmod 0444 ${2}
+    fi
+}
+
+ext 5500000 /sys/class/power_supply/battery/constant_charge_current_max
+
 #
 #Qualcom High AMP Values
 #

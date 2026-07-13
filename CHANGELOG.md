@@ -1,3 +1,7 @@
+xx/07/26 V1.3
+- 
+
+
 01/07/26 V1.2 
 - Fixed Wifi 
 - Fixed Fixed incompatibility with the module "ExcoticDisplay-AmoledEdition"

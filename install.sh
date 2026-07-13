@@ -1,7 +1,7 @@
 #!/system/bin/sh
 SKIPMOUNT=false
 PROPFILE=true
-POSTFSDATA=false
+POSTFSDATA=true
 LATESTARTSERVICE=true
 
 sleep 1
