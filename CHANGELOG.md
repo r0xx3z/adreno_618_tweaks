@@ -1,5 +1,6 @@
 xx/07/26 V1.3
 - Add 33w for Sweet
+- Add new tweaks for UI Improve
 
 
 01/07/26 V1.2 
