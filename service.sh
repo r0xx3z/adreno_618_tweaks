@@ -1,7 +1,6 @@
 #!/system/bin/sh
 
-# assuming youu have magisk, put this in /data/adb/service.d/
-sleep 10;
+sleep 30;
 
 ####################################################
 
@@ -106,7 +105,7 @@ chmod 644 /sys/devices/system/cpu/cpufreq/policy0/shedutil/hispeed_load
 echo "1804800" > /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 echo "300000" > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 echo "1804800" > /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
-echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
+echo "performance" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 echo "1497600" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/highspeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/rtg_boost_freq
 echo "85" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/hispeed_load
@@ -121,7 +120,7 @@ chmod 644 /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load
 echo "2304000" > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
 echo "300000" > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
 echo "2304000" > /sys/devices/system/cpu/cpufreq/policy4/scaling_boost_frequencies
-echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
+echo "performance" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo "1324800" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/rtg_boost_freq
 echo "85" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load
@@ -361,7 +360,7 @@ echo "1" > /sys/class/power_supply/battery/fastcharge_mode
 echo "1" > /sys/class/power_supply/battery/step_charging_enabled
 echo "1" > /sys/class/power_supply/bms/step_charging_enabled
 
-## Sweet 33w by ExoticGank##
+## Sweet 33w by ExoticGank###############################################
 sh /system/etc/.nth_fc/.fc_main.sh
 ext() 
 {
@@ -373,6 +372,7 @@ ext()
 }
 
 ext 5500000 /sys/class/power_supply/battery/constant_charge_current_max
+#########################################################################
 
 #
 #Qualcom High AMP Values
