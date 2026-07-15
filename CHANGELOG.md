@@ -1,7 +1,8 @@
 xx/07/26 V1.3
 - Add 33w for Sweet
 - Add new tweaks for UI Improve
-
+- Fix module context
+- New variant: Non Spoof
 
 01/07/26 V1.2 
 - Fixed Wifi 
