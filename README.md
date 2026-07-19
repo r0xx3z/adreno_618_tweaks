@@ -46,7 +46,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 ---
 
-# Module installation 🛠️
+# Module installation ⏬
 
 1. Make sure you have:
 
@@ -83,15 +83,23 @@ Use in conjunction with:
 
 ---
 
-## Credits  🤝
-
-Testing Team
-
----
-
-## Support:
+## Support 🛠️
 
 - Author:[Llorens](https://t.me/Ll0rens)
 - Group:[Miranda's Kernel](https://t.me/mir4ndSupport/49)
+
+---
+
+## Credits  🤝
+
+### Testing Team: 
+-  @DeltaForce_120FPS
+-  @xalexlozanoo
+-  @zutto02
+-  @iban3z 
+-  @Lancit0
+-  @LaFlameA1
+-  @Jhonatanffd
+-  @KudoWIP
 
 ---
