@@ -4,8 +4,4 @@ service gpu /system/bin/gpuservice
     group graphics readtracefs
     capabilities SYS_NICE SYS_RESOURCE
     task_profiles MaxPerformance
-    priority -10
-    rlimit nice -10 -10
-    ioprio rt 0
-    rlimit rtprio 40 40
-    writepid /dev/stune/top-app/tasks
+    writepid /dev/cpuset/foreground/tasks
