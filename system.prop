@@ -107,10 +107,6 @@ ro.vendor.fps.switch.thermal=false
 ro.vendor.dolby.vision.support=true
 ro.logd.size=1M
 ro.vendor.qti.sys.fw.bservice_enable=true
-ro.surface_flinger.set_touch_timer_ms=0
-ro.surface_flinger.start_graphics_allocator_service=true
-
-renderthread.skia.reduceopstasksplitting=true
 
 vendor.dolby.vision.support=true
 vendor.gralloc.disable_ubwc=0
@@ -182,17 +178,12 @@ debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_hwc_vds=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
-debug.renderengine.backend=skiavkthreaded
-debug.renderengine.vulkan=true
-debug.hwui.renderer=skiavk
-debug.hwui.use_gpu_pixel_buffers=true
-debug.hwui.skip_empty_damage=true
 
 dalvik.vm.isa.arm64.variant=kryo
 dalvik.vm.isa.arm64.features=default
 dalvik.vm.isa.arm.variant=cortex-a55
 dalvik.vm.isa.arm.features=default
-dalvik.vm.dex2oat-filter=everything
+dalvik.vm.dex2oat-filter=speed-profile
 dalvik.vm.dexopt-flags=m=y,o=y,u=n
 dalvik.vm.systemuicompilerfilter=speed-profile
 dalvik.vm.systemservercompilerfilter=speed-profile
@@ -228,6 +219,3 @@ power.saving.mode=0
 effect.reverb.pcm=1
 SurfaceOrientation=0
 QuietInterval=0.1ms
-
-iorapd.readahead.enable=true
-iorapd.maintenance.min_traces=1
