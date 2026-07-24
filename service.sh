@@ -1,6 +1,8 @@
 #!/system/bin/sh
 
-sleep 30;
+until [ "$(getprop sys.boot_completed)" -eq 1 ]; do
+  sleep 10
+done
 
 ####################################################
 
@@ -434,3 +436,10 @@ echo "1" > /sys/module/snd_soc_aw87xxx/parameters/high_perf_mode
 #
 chmod 644 /sys/devices/virtual/bdi/179:0/read_ahead_kb
 echo "8192" > /sys/devices/virtual/bdi/179:0/read_ahead_kb
+####################################################
+
+sleep 10
+
+su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
+
+exit 0
