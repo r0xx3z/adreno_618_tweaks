@@ -5,9 +5,8 @@ POSTFSDATA=true
 LATESTARTSERVICE=true
 
 sleep 1
-
 ui_print "***********************************"
-ui_print "        Adreno GPU Tweaks."
+ui_print "        Adreno GPU Tweaks"
 ui_print "***********************************"
 ui_print ""
 sleep 1
@@ -45,16 +44,20 @@ ui_print "************         **************"
 sleep 0.2
 ui_print "           *         *"
 
-SKIPUNZIP=1
-unzip -qjo "$ZIPFILE" 'common/functions.sh' -d $TMPDIR >&2
-. $TMPDIR/functions.sh
-
 set_permissions() {
   set_perm_recursive $MODPATH 0 0 0755 0644
   set_perm $MODPATH/service.sh 0 0 0777
+  set_perm $MODPATH/post-fs-data.sh 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
 }
+
+cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
+cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
+cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
+rm -rf $MODPATH/common
+
+set_permissions
 
 sleep 2
 ui_print "************         **************"
