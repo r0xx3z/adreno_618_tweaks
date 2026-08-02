@@ -282,9 +282,11 @@ chmod 644 /sys/class/kgsl/kgsl-3d0/force_rail_on
 chmod 644 /sys/class/kgsl/kgsl-3d0/force_no_nap
 chmod 644 /sys/class/kgsl/kgsl-3d0/fsync_enable
 chmod 644 /sys/class/kgsl/kgsl-3d0/vsync_enable
+chmod 644 /sys/module/adreno_idler/parameters/adreno_idler_active
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_clk_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_bus_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_rail_on
+echo "1" > /sys/module/adreno_idler/parameters/adreno_idler_active
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_no_nap
 echo "0" > /sys/class/kgsl/kgsl-3d0/fsync_enable
 echo "0" > /sys/class/kgsl/kgsl-3d0/vsync_enable
@@ -304,6 +306,13 @@ echo "N" > /sys/module/msm_performance/parameters/gpu_uv
 #
 chmod 644 /sys/class/kgsl/kgsl-3d0/throttling
 echo "0" > /sys/class/kgsl/kgsl-3d0/throttling
+#
+# Adreno snapshot crashdumper
+#
+echo "0" > /sys/class/kgsl/kgsl-3d0/snapshot/snapshot_crashdumper
+echo "0" > /sys/class/kgsl/kgsl-3d0/snapshot/dump
+echo "0" > /sys/class/kgsl/kgsl-3d0/snapshot/force_panic
+
 ####################################################
 
 ##POWER SETTINGS##
@@ -421,6 +430,14 @@ chmod 644 /sys/module/msm_performance/parameters/touchboost
 chmod 644 /sys/power/pnpmgr/touch_boost
 echo "1" > /sys/module/msm_performance/parameters/touchboost
 echo "1" > /sys/power/pnpmgr/touch_boost
+
+_set_refresh() {
+    cmd display set-user-preferred-refresh-rate 120 2>/dev/null || true
+    settings put system peak_refresh_rate 120
+    settings put system min_refresh_rate 120
+}
+_set_refresh
+
 #
 #Low Mem Killer
 #
@@ -519,7 +536,6 @@ dumpsys device_config
 setprop vendor.gpu.thermal.temp 150
 
 # Disable throttling
-echo 1 > /sys/class/kgsl/kgsl-3d0/force_clk_on
 echo 0 > /sys/class/kgsl/kgsl-3d0/throttling
 
 # Disable thermal service 
