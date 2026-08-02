@@ -56,6 +56,11 @@ ro.vendor.thermal.dimming.enable=false
 ro.vendor.fps.switch.thermal=false
 ro.logd.size=1M
 ro.vendor.qti.sys.fw.bservice_enable=true
+ro.vendor.display.hwc_thermal_dimming=false
+ro.vendor.fps.switch.thermal=false
+ro.vendor.thermal.dimming.enable=false
+ro.thermal.iec.enable=false
+ro.vendor.mi_sf.pq_thermal=false
 
 vendor.gralloc.disable_ubwc=0
 
@@ -103,6 +108,8 @@ persist.hw.perf.debug=false
 persist.vendor.qti.inputopts.enable=true
 persist.vendor.color.matrix=2
 persist.sys.composition.type=gpu
+persist.sys.smartpower.display_thermal_temp_threshold=70
+persist.sys.show_temperature_warning=0
 
 debug.cpurend.vsync=false
 debug.gpurend.vsync=false
@@ -125,6 +132,7 @@ debug.sf.enable_advanced_sf_phase_offset=1
 debug.sf.enable_hwc_vds=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
+debug.display.render_frame_rate_is_physical_refresh_rate=true
 
 dalvik.vm.isa.arm64.variant=kryo
 dalvik.vm.isa.arm64.features=default
