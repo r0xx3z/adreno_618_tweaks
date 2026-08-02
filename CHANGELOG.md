@@ -1,5 +1,7 @@
 XX/0x/26
 - The module service execution time has been adjusted to 10 seconds after system startup
+- Added thermal disabler
+- Refactor: Install.sh
 - 
 
 
