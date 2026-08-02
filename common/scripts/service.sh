@@ -438,6 +438,300 @@ chmod 644 /sys/devices/virtual/bdi/179:0/read_ahead_kb
 echo "8192" > /sys/devices/virtual/bdi/179:0/read_ahead_kb
 ###################################################
 
+#
+# THERMAL SPOOF
+#
+cmd thermalservice override-status 0
+
+for sensor in cpu0 gpu0 npu0 apu0 dsp0 tpu0 vpu0 isp0 spu0 dpu0 pim0 skin pmic0 ddr0 ufs0 modem0 battery; do
+    cmd thermalservice inject-temperature CPU light $sensor 120.000
+done
+
+# Disable thermal services
+ disable_another_thermal() {
+    thermal_prop=$(getprop | grep init.svc.*thermal* | cut -d: -f1 | sed 's/[][]//g')
+ 
+  for thermal in $thermal_prop; do
+    if [ "$(resetprop "$thermal")" = 'running' ] || [ "$(resetprop "$thermal")" = 'restarting' ]; then
+      stop "$(echo "$thermal" | sed 's/init.svc.//')"
+    fi
+  done
+} 
+
+# Function to write values to a file
+write () {
+    local file="$1"
+    local value="$2"
+    if [[ -z "$file" || -z "$value" || ! -f "$file" ]]; then
+        return 1
+    fi
+    chmod +w "$file" 2>/dev/null
+    echo "$value" > "$file" 2>/dev/null && echo "$file → $value" || return 1
+    return 0
+}
+
+# Disable GPU frequency limiting
+for gpufreq in /proc/gpufreq; do
+    if [ -d "$gpufreq" ]; then
+        write $gpufreq/gpufreq_power_limited "0"
+        write $gpufreq/gpufreq_limited_thermal_ignore "1"
+    fi
+done
+
+# Disable GPU throttling
+for kgsl in /sys/class/kgsl/kgsl-3d0; do
+    if [ -d "$kgsl" ]; then
+        write $kgsl/throttling "0"
+        write $kgsl/thermal_pwrlevel "0"
+    fi
+done
+
+# // modifying the GPU / DDR temperature 105°C
+  for THERMAL_ZONE in `ls /sys/class/thermal/thermal_zone*/type`; do
+	 if cat $THERMAL_ZONE | grep -E "gpu|ddr" >/dev/null; then
+		for TRIP_POINT_TEMP in `ls ${THERMAL_ZONE%/*}/trip_point_*_temp`; do
+			if [ "$(cat $TRIP_POINT_TEMP)" -lt "$SET_TRIP_POINT_TEMP_MAX" ]; then
+				echo "$SET_TRIP_POINT_TEMP_MAX" > $TRIP_POINT_TEMP
+			fi
+		done
+	 fi
+  done
+  
+# Config gpu thermal
+(
+cmd package bg-dexopt-job thermal cutoff
+setprop pm.dexopt.disable_bg_dexopt true
+cmd device_config put dalvik dexopt disable_bg_dexopt true
+pm bg-dexopt-job-disable
+cmd device_config put dalvik vm.dexopt thermal_cutoff 0
+dumpsys device_config
+cmd power set-fixed-performance-mode-enabled true
+cmd power set-adaptive-power-saver-enabled false
+cmd power set-mode 0
+cmd device_config put thermal high_temp_limit 150
+cmd device_config put thermal low_temp_limit 150
+cmd shortcut reset-throttling
+cmd shortcut reset-all-throttling
+dumpsys device_config
+) >/dev/null 2>&1 &
+
+# Adjust GPU throttling temperature
+setprop vendor.gpu.thermal.temp 150
+
+# Disable throttling
+echo 1 > /sys/class/kgsl/kgsl-3d0/force_clk_on
+echo 0 > /sys/class/kgsl/kgsl-3d0/throttling
+
+# Disable thermal service 
+for thermsvc in $(getprop | grep init.svc.*thermal* | cut -d: -f1 | sed 's/[][]//g'); do
+    resetprop -n "$thermsvc" "stopped"
+done
+
+# Deactivate thermal properties
+for thermsys in $(getprop | grep sys.*thermal* | cut -d: -f1 | sed 's/[][]//g'); do
+    resetprop -n "$thermsys" "0"
+done
+
+# Deactivate thermal zone 
+for thermmode in /sys/devices/virtual/thermal/thermal_zone*/mode; do
+    write "$thermmode" "disabled"
+done
+
+# Disable msm_thermal
+  find /sys -name enabled | grep 'msm_thermal' | while IFS= read -r msm_thermal_status; do
+    if [ "$(cat "$msm_thermal_status")" = 'Y' ]; then
+      echo 'N' > "$msm_thermal_status"
+    fi
+    if [ "$(cat "$msm_thermal_status")" = '1' ]; then
+      echo '0' > "$msm_thermal_status"
+    fi
+  done
+
+  for thermdevmode in /sys/devices/virtual/thermal/thermal_zone*/mode; do
+    chmod -R 644 $thermdevmode
+    echo "disabled" > $thermdevmode
+  done
+
+  for all_thermal in /sys/devices/virtual/thermal/thermal_zone*; do
+    chmod -R 000 $all_thermal
+  done
+
+  for all_thermal in /sys/devices/virtual/hwmon/hwmon*; do
+    chmod -R 000 $all_thermal
+  done
+
+  for all_thermal in /sys/firmware/devicetree/base/soc/qcom,limit_info*; do
+    chmod -R 000 $all_thermal
+  done
+  
+  for all_thermal in $(find /sys/firmware/devicetree/base/soc/qcom,msm-thermal/ -name *temp*); do
+    chmod 000 $all_thermal
+  done
+  
+  for all_thermal in /sys/firmware/devicetree/base/soc/qcom,msm-thermal/; do
+    chmod 000 $all_thermal/name
+  done
+  
+  for all_thermal in $(find /sys/devices/soc/*/kgsl/kgsl-3d0/ -name *temp*); do
+    chmod 000 $all_thermal
+  done
+
+# Other thermal disables
+  for sched in /proc/sys/kernel/sched_boost; do
+    echo "0" > $sched
+  done
+  
+# Disable Via Props  
+  if resetprop dalvik.vm.dexopt.thermal-cutoff | grep -q '2'; then
+    resetprop -n dalvik.vm.dexopt.thermal-cutoff 0
+  fi
+  
+  if resetprop sys.thermal.enable | grep -q 'true'; then
+    resetprop -n sys.thermal.enable false
+  fi
+  
+  if resetprop ro.thermal_warmreset | grep -q 'true'; then
+    resetprop -n ro.thermal_warmreset false
+  fi
+
+  for sched_schedstats in $(find /proc/sys/ -name sched_schedstats); do
+    echo "0" > $sched_schedstats
+  done
+
+  for printk in $(find /proc/sys/ -name printk); do
+    echo "0 0 0 0" > $printk
+  done
+
+  for printk_devkmsg in $(find /proc/sys/ -name printk_devkmsg); do
+    echo "off" > $printk_devkmsg
+  done
+
+  for compat_log in $(find /proc/sys/ -name compat-log); do
+    echo "0" > $compat_log
+  done
+
+  for tracing_on in $(find /proc/sys/ -name tracing_on); do
+    echo "0" $tracing_on
+  done
+
+  for log_level in $(find /sys/ -name log_level*); do
+    echo "0" > $log_level
+  done
+
+  for debug_mask in $(find /sys/ -name debug_mask); do
+    echo "0" > $debug_mask
+  done
+
+  for debug_level in $(find /sys/ -name debug_level); do
+    echo "0" > $debug_level
+  done
+
+  for log_ue in $(find /sys/ -name *log_ue*); do
+    echo "0" > $log_ue
+  done
+
+  for log_ce in $(find /sys/ -name *log_ce*); do
+    echo "0" > $log_ce
+  done
+
+  for edac_mc_log in $(find /sys/ -name edac_mc_log*); do
+    echo "0" > $edac_mc_log
+  done
+
+  for enable_event_log in $(find /sys/ -name enable_event_log); do
+    echo "0" > $enable_event_log
+  done
+
+  for log_ecn_error in $(find /sys/ -name log_ecn_error); do
+    echo "0" > $log_ecn_error
+  done
+
+  for sec_log in $(find /sys/ -name sec_log*); do
+    echo "0" > $sec_log
+  done
+
+  for snapshot_crashdumper in $(find /sys/ -name snapshot_crashdumper); do
+    echo "0" > $snapshot_crashdumper
+  done
+ }
+
+# Adjust battery temperature threshold
+setprop persist.sys.battery.temp_high 90
+
+# Universal Thermal Disabler
+echo 0 > /sys/class/thermal/thermal_zone*/mode
+sleep 1
+# Thermal Stop Setprop Methode
+setprop init.svc.thermal stopped
+setprop init.svc.thermal-managers stopped
+setprop init.svc.thermal_manager stopped
+setprop init.svc.thermal_mnt_hal_service stopped
+setprop init.svc.thermal-stopped running
+setprop init.svc.mi-thermald running 
+setprop init.svc.thermalloadalgod stopped
+setprop init.svc.thermalservice running
+setprop init.svc.thermal-hal running 
+setprop init.svc.vendor.thermal-symlinks stoped 
+setprop init.svc.android.thermal-hal stopped
+setprop init.svc.vendor.thermal-hal running
+setprop init.svc.thermal-manager stopped
+setprop init.svc.vendor-thermal-hal-1-0 stopped
+setprop init.svc.vendor.thermal-hal-1-0 stopped
+setprop init.svc.vendor.thermal-hal-2-0 stopped
+setprop init.svc.android.thermal-hal stopped
+setprop init.svc.thermel-enggine stopped
+setprop init.svc.vendor.thermal-enggine stopped
+sleep 1
+# Thermal Stop Semi-auto Methode
+sleep 12
+stop logd
+sleep 1
+stop vendor.thermal-engine
+sleep 1
+stop vendor.thermal_manager
+sleep 1
+stop vendor.thermal-manager
+sleep 1
+stop vendor.thermal-hal-2-0
+sleep 1
+stop vendor.thermal-symlinks
+sleep 1
+stop thermal_mnt_hal_service
+sleep 1
+stop thermal
+sleep 1
+stop mi_thermald
+sleep 1
+stop thermald
+sleep 1
+stop thermalloadalgod
+sleep 1
+stop thermalservice
+sleep 1
+stop sec-thermal-1-0
+sleep 1
+stop debug_pid.sec-thermal-1-0
+sleep 1
+stop thermal-engine
+sleep 1
+stop vendor.thermal-hal-1-0
+sleep 1
+stop android.thermal-hal
+sleep 1
+stop vendor-thermal-1-0
+sleep 1
+stop thermal-hal
+sleep 1
+stop android.thermal-hal
+
+# Deactivate other thermal functions
+echo 0 > /proc/sys/kernel/sched_boost
+
+# Remove cache thermal
+rm -f /data/vendor/thermal/config
+rm -f /data/vendor/thermal/thermal.dump
+rm -f /data/vendor/thermal/thermal_history.dump
+
 sleep 10
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
