@@ -3,6 +3,7 @@ SKIPMOUNT=false
 PROPFILE=true
 POSTFSDATA=true
 LATESTARTSERVICE=true
+SKIPUNZIP=1
 
 sleep 1
 ui_print "***********************************"
@@ -44,6 +45,13 @@ ui_print "************         **************"
 sleep 0.2
 ui_print "           *         *"
 
+unzip -o "$ZIPFILE" -d "$MODPATH" >&2
+  
+cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
+cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
+cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
+rm -rf $MODPATH/common
+
 set_permissions() {
   set_perm_recursive $MODPATH 0 0 0755 0644
   set_perm $MODPATH/service.sh 0 0 0777
@@ -51,11 +59,6 @@ set_permissions() {
   set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
 }
-
-cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
-cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
-cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
-rm -rf $MODPATH/common
 
 set_permissions
 
