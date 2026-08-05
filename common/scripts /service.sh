@@ -287,7 +287,7 @@ echo "1" > /sys/class/kgsl/kgsl-3d0/force_clk_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_bus_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_rail_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_no_nap
-echo "1" > /sys/module/adreno_idler/parameters/adreno_idler_active
+echo "0" > /sys/module/adreno_idler/parameters/adreno_idler_active
 echo "0" > /sys/class/kgsl/kgsl-3d0/fsync_enable
 echo "0" > /sys/class/kgsl/kgsl-3d0/vsync_enable
 #
