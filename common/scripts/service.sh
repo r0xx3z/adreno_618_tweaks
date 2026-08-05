@@ -96,7 +96,7 @@ echo "performance" > /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
 echo "performance" > /sys/devices/system/cpu/cpu5/cpufreq/scaling_governor
 echo "performance" > /sys/devices/system/cpu/cpu6/cpufreq/scaling_governor
 echo "performance" > /sys/devices/system/cpu/cpu7/cpufreq/scaling_governor
-#Cortex A53 kryo 260 kernel policy0 paths CPU clock speed 300MHz to 1900MHz RTG Load Boost Freq 1900Mhz HighSpeed Freq 940MHz at 95 Load
+#Cortex A53 kryo 260 kernel policy0 paths CPU clock speed 300MHz to 1900MHz RTG Load Boost Freq 1900Mhz HighSpeed Freq 940MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
 chmod 644 /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 chmod 644 /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequencies
@@ -110,8 +110,8 @@ echo "1804800" > /sys/devices/system/cpu/cpufreq/policy0/scaling_boost_frequenci
 echo "performance" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 echo "1497600" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/highspeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/hispeed_load
-#Cortex A73 kryo 260 kernel policy4 paths CPU clock speed 300MHz to 2400MHz RTG Load Boost Freq 2400Mhz HighSpeed Freq 806MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpufreq/policy0/shedutil/hispeed_load
+#Cortex A73 kryo 260 kernel policy4 paths CPU clock speed 300MHz to 2400MHz RTG Load Boost Freq 2400Mhz HighSpeed Freq 806MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
 chmod 644 /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
 chmod 644 /sys/devices/system/cpu/cpufreq/policy4/scaling_boost_frequencies
@@ -125,63 +125,63 @@ echo "2304000" > /sys/devices/system/cpu/cpufreq/policy4/scaling_boost_frequenci
 echo "performance" > /sys/devices/system/cpu/cpufreq/policy4/scaling_governor
 echo "1324800" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load
-#CPU0 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_load
+#CPU0 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load
 echo "1497600" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load
-#CPU1 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu0/cpufreq/schedutil/hispeed_load
+#CPU1 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu1/cpufreq/schedutil/hispeed_load
 echo "1497600" > /sys/devices/system/cpu/cpu1/cpufreq/schedutil/hispeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpu1/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu1/cpufreq/schedutil/hispeed_load
-#CPU2 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu1/cpufreq/schedutil/hispeed_load
+#CPU2 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu2/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu2/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu2/cpufreq/schedutil/hispeed_load
 echo "1497600" > /sys/devices/system/cpu/cpu2/cpufreq/schedutil/hispeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpu2/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu2/cpufreq/schedutil/hispeed_load
-#CPU3 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu2/cpufreq/schedutil/hispeed_load
+#CPU3 A53 RTG Load Boost Freq 1900MHz HighSpeed Freq 940MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu3/cpufreq/schedutil/hispeed_load
 echo "1497600" > /sys/devices/system/cpu/cpu3/cpufreq/schedutil/hispeed_freq
 echo "1804800" > /sys/devices/system/cpu/cpu3/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu3/cpufreq/schedutil/hispeed_load
-#CPU4 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu3/cpufreq/schedutil/hispeed_load
+#CPU4 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load
 echo "1324800" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load
-#CPU5 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu4/cpufreq/schedutil/hispeed_load
+#CPU5 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu5/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu5/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu5/cpufreq/schedutil/hispeed_load
 echo "1324800" > /sys/devices/system/cpu/cpu5/cpufreq/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpu5/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu5/cpufreq/schedutil/hispeed_load
-#CPU6 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu5/cpufreq/schedutil/hispeed_load
+#CPU6 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load
 echo "1324800" > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load
-#CPU7 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 95 Load
+echo "75" > /sys/devices/system/cpu/cpu6/cpufreq/schedutil/hispeed_load
+#CPU7 A73 RTG Load Boost Freq 2400MHz HighSpeed Freq 806MHz at 75 Load
 chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/schedutil/hispeed_freq
 chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/schedutil/rtg_boost_freq
 chmod 644 /sys/devices/system/cpu/cpu7/cpufreq/schedutil/hispeed_load
 echo "1324800" > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/hispeed_freq
 echo "2304000" > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/rtg_boost_freq
-echo "85" > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/hispeed_load
+echo "75" > /sys/devices/system/cpu/cpu7/cpufreq/schedutil/hispeed_load
 #
 #CPU set dev
 #
@@ -255,7 +255,7 @@ echo "0" > /sys/module/msm_thermal/cpuvoltage_control/enabled
 
 ##GPU##
 #
-#Adreno 618 (Redmi Note 10 Pro / SM7150-AC) GPU max clock speed
+#Adreno 618 (RN10PRO - SM6150) GPU max clock speed
 chmod 644 /sys/class/kgsl/kgsl-3d0/gpuclk
 chmod 644 /sys/class/kgsl/kgsl-3d0/gpuclk_mhz
 chmod 644 /sys/class/kgsl/kgsl-3d0/max_clock_mhz
@@ -268,9 +268,6 @@ echo "800" > /sys/class/kgsl/kgsl-3d0/gpuclk_mhz
 echo "800" > /sys/class/kgsl/kgsl-3d0/max_clock_mhz
 echo "800000000" > /sys/class/kgsl/kgsl-3d0/max_gpuclk
 echo "0" > /sys/class/kgsl/kgsl-3d0/max_pwrlevel
-#
-#default_pwrlevel/min_pwrlevel: confirm with "cat /sys/class/kgsl/kgsl-3d0/num_pwrlevels"
-#
 echo "0" > /sys/class/kgsl/kgsl-3d0/default_pwrlevel
 echo "0" > /sys/class/kgsl/kgsl-3d0/min_pwrlevel
 #
@@ -286,7 +283,7 @@ chmod 644 /sys/module/adreno_idler/parameters/adreno_idler_active
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_clk_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_bus_on
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_rail_on
-echo "1" > /sys/module/adreno_idler/parameters/adreno_idler_active
+echo "0" > /sys/module/adreno_idler/parameters/adreno_idler_active
 echo "1" > /sys/class/kgsl/kgsl-3d0/force_no_nap
 echo "0" > /sys/class/kgsl/kgsl-3d0/fsync_enable
 echo "0" > /sys/class/kgsl/kgsl-3d0/vsync_enable
@@ -301,11 +298,6 @@ echo "Y" > /sys/module/msm_performance/parameters/gpu_oc
 echo "Y" > /sys/module/msm_performance/parameters/gpu_ov
 echo "N" > /sys/module/msm_performance/parameters/gpu_uc
 echo "N" > /sys/module/msm_performance/parameters/gpu_uv
-#
-#Adreno 618 GPU Thermal Throttling
-#
-chmod 644 /sys/class/kgsl/kgsl-3d0/throttling
-echo "0" > /sys/class/kgsl/kgsl-3d0/throttling
 #
 # Adreno snapshot crashdumper
 #
@@ -371,7 +363,7 @@ echo "1" > /sys/class/power_supply/battery/fastcharge_mode
 echo "1" > /sys/class/power_supply/battery/step_charging_enabled
 echo "1" > /sys/class/power_supply/bms/step_charging_enabled
 
-## Sweet 33w by ExoticGank###############################################
+## Sweet 33w by ExoticGank ###############################
 sh /system/etc/.nth_fc/.fc_main.sh
 ext() 
 {
@@ -383,46 +375,8 @@ ext()
 }
 
 ext 5500000 /sys/class/power_supply/battery/constant_charge_current_max
-#########################################################################
+###################################################
 
-#
-#Qualcom High AMP Values
-#
-chmod 644 /sys/class/power_supply/usb/current_max
-chmod 644 /sys/class/power_supply/usb/hw_current_max
-chmod 644 /sys/class/power_supply/usb/pd_current_max
-chmod 644 /sys/class/power_supply/usb/ctm_current_max
-chmod 644 /sys/class/power_supply/usb/sdp_current_max
-chmod 644 /sys/class/power_supply/pc_port/current_max
-chmod 644 /sys/class/qcom-battery/restricted_current
-chmod 644 /sys/class/power_supply/main/current_max
-chmod 644 /sys/class/power_supply/main/constant_charge_current_max
-chmod 644 /sys/class/power_supply/main/constant_charge_current
-chmod 644 /sys/class/power_supply/battery/current_max
-chmod 644 /sys/class/power_supply/battery/constant_charge_current_max
-chmod 644 /sys/class/power_supply/battery/constant_charge_current
-chmod 644 /sys/class/power_supply/bms/current_max
-chmod 644 /sys/class/power_supply/bms/constant_charge_current_max
-chmod 644 /sys/class/power_supply/bms/constant_charge_current
-echo "7400000" > /sys/class/power_supply/usb/current_max
-echo "7400000" > /sys/class/power_supply/usb/hw_current_max
-echo "7400000" > /sys/class/power_supply/usb/pd_current_max
-echo "7400000" > /sys/class/power_supply/usb/ctm_current_max
-echo "7400000" > /sys/class/power_supply/usb/sdp_current_max
-echo "7400000" > /sys/class/power_supply/pc_port/current_max
-echo "7600000" > /sys/class/qcom-battery/restricted_current
-echo "7400000" > /sys/class/power_supply/main/current_max
-echo "7400000" > /sys/class/power_supply/main/constant_charge_current_max
-echo "7400000" > /sys/class/power_supply/main/constant_charge_current
-echo "7400000" > /sys/class/power_supply/battery/current_max
-echo "7400000" > /sys/class/power_supply/battery/constant_charge_current_max
-echo "7400000" > /sys/class/power_supply/battery/constant_charge_current
-echo "7400000" > /sys/class/power_supply/bms/current_max
-echo "7400000" > /sys/class/power_supply/bms/constant_charge_current_max
-echo "7400000" > /sys/class/power_supply/bms/constant_charge_current
-####################################################
-
-##Other Settings##
 #
 #Qualcom Touch Boost
 #
@@ -443,17 +397,6 @@ _set_refresh
 #
 chmod 644 /sys/module/lowmemorykiller/parameters/enable_lmk
 echo "0" > /sys/module/lowmemorykiller/parameters/enable_lmk
-#
-#snd
-#
-chmod 644 /sys/module/snd_soc_aw87xxx/parameters/high_perf_mode
-echo "1" > /sys/module/snd_soc_aw87xxx/parameters/high_perf_mode
-#
-#sd card
-#
-chmod 644 /sys/devices/virtual/bdi/179:0/read_ahead_kb
-echo "8192" > /sys/devices/virtual/bdi/179:0/read_ahead_kb
-###################################################
 
 #
 # THERMAL SPOOF
@@ -591,11 +534,6 @@ done
   for all_thermal in $(find /sys/devices/soc/*/kgsl/kgsl-3d0/ -name *temp*); do
     chmod 000 $all_thermal
   done
-
-# Other thermal disables
-  for sched in /proc/sys/kernel/sched_boost; do
-    echo "0" > $sched
-  done
   
 # Disable Via Props  
   if resetprop dalvik.vm.dexopt.thermal-cutoff | grep -q '2'; then
@@ -699,7 +637,7 @@ setprop init.svc.thermel-enggine stopped
 setprop init.svc.vendor.thermal-enggine stopped
 sleep 1
 # Thermal Stop Semi-auto Methode
-sleep 12
+sleep 5
 stop logd
 sleep 1
 stop vendor.thermal-engine
@@ -740,15 +678,12 @@ stop thermal-hal
 sleep 1
 stop android.thermal-hal
 
-# Deactivate other thermal functions
-echo 0 > /proc/sys/kernel/sched_boost
-
 # Remove cache thermal
 rm -f /data/vendor/thermal/config
 rm -f /data/vendor/thermal/thermal.dump
 rm -f /data/vendor/thermal/thermal_history.dump
 
-sleep 10
+sleep 5
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
 
