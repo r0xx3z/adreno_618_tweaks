@@ -1,8 +1,10 @@
 #!/system/bin/sh
 
 until [ "$(getprop sys.boot_completed)" -eq 1 ]; do
-  sleep 10
+  sleep 20
 done
+
+su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'Installing...'" > /dev/null 2>&1
 
 ####################################################
 
@@ -630,7 +632,6 @@ done
   for snapshot_crashdumper in $(find /sys/ -name snapshot_crashdumper); do
     echo "0" > $snapshot_crashdumper
   done
- }
 
 # Adjust battery temperature threshold
 setprop persist.sys.battery.temp_high 90
