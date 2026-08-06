@@ -1,7 +1,8 @@
-XX/0x/26
+XX/08/26 V1.4
 - The module service execution time has been adjusted to 10 seconds after system startup
 - Added thermal disabler
 - Refactor: Install.sh
+- Add new tweaks 
 - 
 
 20/07/26 V1.3
@@ -18,7 +19,7 @@ XX/0x/26
 01/07/26 V1.1
 - Ram Size 6GB to 8GB (system.prop)
 - Fixed GPU Spoofing
-- Fixes CPU Spoofing
+- Fixed CPU Spoofing
 - Fixed update.json
 - Old flags and redundancy have been removed from system.prop
 - New flags added to system.prop 
