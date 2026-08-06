@@ -1,9 +1,8 @@
 XX/08/26 V1.4
-- The module service execution time has been adjusted to 10 seconds after system startup
 - Added thermal disabler
 - Refactor: Install.sh
-- Add new tweaks 
-- 
+- Added new tweaks
+- Added confirmation message
 
 20/07/26 V1.3
 - Add 33w for Sweet
