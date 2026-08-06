@@ -230,6 +230,29 @@ echo "0-7" > /dev/cpuset/top-app/effective_cpus
 echo "0-3,4-7" > /dev/cpuset/kernel/cpus
 echo "0-3,4-7" > /dev/cpuset/kernel/effective_cpus
 #
+# Dev Stune Boost
+#
+write /dev/stune/background/schedtune.boost "20"
+write /dev/stune/background/schedtune.prefer_idle "0"
+write /dev/stune/background/schedtune.colocate "0"
+write /dev/stune/background/schedtune.sched_boost_enabled "0"
+write /dev/stune/foreground/schedtune.boost "20"
+write /dev/stune/foreground/schedtune.prefer_idle "0"
+write /dev/stune/foreground/schedtune.colocate "0"
+write /dev/stune/foreground/schedtune.sched_boost_enabled "0"
+write /dev/stune/rt/schedtune.boost "20"
+write /dev/stune/rt/schedtune.prefer_idle "0"
+write /dev/stune/rt/schedtune.colocate "0"
+write /dev/stune/rt/schedtune.sched_boost_enabled "0"
+write /dev/stune/top-app/schedtune.boost "20"
+write /dev/stune/top-app/schedtune.prefer_idle "0"
+write /dev/stune/top-app/schedtune.colocate "0"
+write /dev/stune/top-app/schedtune.sched_boost_enabled "0"
+write /dev/stune/schedtune.boost "20"
+write /dev/stune/schedtune.prefer_idle "0"
+write /dev/stune/schedtune.colocate "0"
+write /dev/stune/schedtune.sched_boost_enabled "0"
+#
 #CPU Overclock Parameters
 #
 chmod 644 /sys/module/msm_performance/parameters/cpu_oc
@@ -615,73 +638,55 @@ setprop persist.sys.battery.temp_high 90
 # Universal Thermal Disabler
 echo 0 > /sys/class/thermal/thermal_zone*/mode
 sleep 1
-# Thermal Stop Setprop Methode
-setprop init.svc.thermal stopped
-setprop init.svc.thermal-managers stopped
-setprop init.svc.thermal_manager stopped
-setprop init.svc.thermal_mnt_hal_service stopped
-setprop init.svc.thermal-stopped running
-setprop init.svc.mi-thermald running 
-setprop init.svc.thermalloadalgod stopped
-setprop init.svc.thermalservice running
-setprop init.svc.thermal-hal running 
-setprop init.svc.vendor.thermal-symlinks stoped 
-setprop init.svc.android.thermal-hal stopped
-setprop init.svc.vendor.thermal-hal running
-setprop init.svc.thermal-manager stopped
-setprop init.svc.vendor-thermal-hal-1-0 stopped
-setprop init.svc.vendor.thermal-hal-1-0 stopped
-setprop init.svc.vendor.thermal-hal-2-0 stopped
-setprop init.svc.android.thermal-hal stopped
-setprop init.svc.thermel-enggine stopped
-setprop init.svc.vendor.thermal-enggine stopped
-sleep 1
-# Thermal Stop Semi-auto Methode
-sleep 5
-stop logd
-sleep 1
-stop vendor.thermal-engine
-sleep 1
-stop vendor.thermal_manager
-sleep 1
-stop vendor.thermal-manager
-sleep 1
-stop vendor.thermal-hal-2-0
-sleep 1
-stop vendor.thermal-symlinks
-sleep 1
-stop thermal_mnt_hal_service
-sleep 1
-stop thermal
-sleep 1
-stop mi_thermald
-sleep 1
-stop thermald
-sleep 1
-stop thermalloadalgod
-sleep 1
-stop thermalservice
-sleep 1
-stop sec-thermal-1-0
-sleep 1
-stop debug_pid.sec-thermal-1-0
-sleep 1
-stop thermal-engine
-sleep 1
-stop vendor.thermal-hal-1-0
-sleep 1
-stop android.thermal-hal
-sleep 1
-stop vendor-thermal-1-0
-sleep 1
-stop thermal-hal
-sleep 1
-stop android.thermal-hal
 
 # Remove cache thermal
 rm -f /data/vendor/thermal/config
 rm -f /data/vendor/thermal/thermal.dump
 rm -f /data/vendor/thermal/thermal_history.dump
+
+#Disable logs
+echo "0" > /proc/sys/kernel/nmi_watchdog
+echo "0" > /proc/sys/kernel/compat-log
+echo "Y" > /sys/module/bluetooth/parameters/disable_ertm
+echo "Y" > /sys/module/bluetooth/parameters/disable_esco
+echo "0" > /sys/module/dwc3/parameters/ep_addr_rxdbg_mask
+echo "0" > /sys/module/dwc3/parameters/ep_addr_txdbg_mask
+echo "0" > /sys/module/dwc3_msm/parameters/disable_host_mode
+echo "0" > /sys/module/hid_apple/parameters/fnmode
+echo "0" > /sys/module/hid/parameters/ignore_special_drivers
+echo "N" > /sys/module/hid_magicmouse/parameters/emulate_3button
+echo "N" > /sys/module/hid_magicmouse/parameters/emulate_scroll_wheel
+echo "0" > /sys/module/hid_magicmouse/parameters/scroll_speed
+echo "N" > /sys/module/mdss_fb/parameters/backlight_dimmer
+echo "Y" > /sys/module/workqueue/parameters/power_efficient
+echo "N" > /sys/module/sync/parameters/fsync_enabled
+echo "0" > /sys/module/binder/parameters/debug_mask
+echo "0" > /sys/module/debug/parameters/enable_event_log
+echo "0" > /sys/module/glink/parameters/debug_mask
+echo "N" > /sys/module/ip6_tunnel/parameters/log_ecn_error
+echo "0" > /sys/module/subsystem_restart/parameters/enable_ramdumps
+echo "0" > /sys/module/lowmemorykiller/parameters/debug_level
+echo "0" > /sys/module/msm_show_resume_irq/parameters/debug_mask
+echo "0" > /sys/module/msm_smd_pkt/parameters/debug_mask
+echo "N" > /sys/module/sit/parameters/log_ecn_error
+echo "0" > /sys/module/smp2p/parameters/debug_mask
+echo "0" > /sys/module/usb_bam/parameters/enable_event_log
+echo "Y" > /sys/module/printk/parameters/console_suspend
+echo "N" > /sys/module/printk/parameters/cpu
+echo "Y" > /sys/module/printk/parameters/ignore_loglevel
+echo "N" > /sys/module/printk/parameters/pid
+echo "N" > /sys/module/printk/parameters/time
+echo "0" > /sys/module/service_locator/parameters/enable
+echo "1" > /sys/module/subsystem_restart/parameters/disable_restart_work
+
+find /sys/ -name debug_mask -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name debug_level -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name edac_mc_log_ce -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name edac_mc_log_ue -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name enable_event_log -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name log_ecn_error -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/ -name snapshot_crashdumper -exec sh -c 'echo "0" > "$1"' _ {} \;
+find /sys/kernel/debug/kgsl/kgsl-3d0/ -name '*log*' -exec sh -c 'echo "0" > "$1"' _ {} \;
 
 sleep 5
 
