@@ -90,7 +90,6 @@ ro.com.google.networklocation=0
 ro.config.htc.nocheckin=1
 ro.config.nocheckin=1
 ro.kernel.android.checkjni=0
-ro.kernel.checkjni=0
 ro.logdumpd.enabled=0
 ro.kernel.checkjni=0
 ro.kernel.android.checkjni=false
@@ -112,9 +111,13 @@ ro.vendor.fps.switch.thermal=false
 ro.vendor.thermal.dimming.enable=false
 ro.thermal.iec.enable=false
 ro.vendor.mi_sf.pq_thermal=false
+ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+ro.kernel.android.checkjni=0
+ro.vendor.touchfeature.gamemode.enable=true
 
 vendor.dolby.vision.support=true
 vendor.gralloc.disable_ubwc=0
+vendor.perf.gestureflingboost.enable=1
 
 persist.splitwindow.support_all=true
 persist.floatwindow.support_all=true
@@ -163,6 +166,13 @@ persist.vendor.color.matrix=2
 persist.sys.composition.type=gpu
 persist.sys.smartpower.display_thermal_temp_threshold=70
 persist.sys.show_temperature_warning=0
+persist.vendor.qti.games.gt.prof=1
+persist.vendor.sys.reduce_qdss_log=1
+persist.dev.pm.dyn_samplingrate=1
+persist.device_config.runtime_native.usap_pool_enabled=true
+persist.sampling_profiler=0
+persist.android.strictmode=0
+persist.vendor.qti.inputopts.movetouchslop=0.1
 
 debug.cpurend.vsync=false
 debug.gpurend.vsync=false
@@ -186,6 +196,7 @@ debug.sf.enable_hwc_vds=1
 debug.sf.enable_gl_backpressure=1
 debug.sf.latch_unsignaled=1
 debug.display.render_frame_rate_is_physical_refresh_rate=true
+debug.gralloc.enable_fb_ubwc=true
 
 dalvik.vm.isa.arm64.variant=kryo
 dalvik.vm.isa.arm64.features=default
@@ -195,6 +206,7 @@ dalvik.vm.dex2oat-filter=speed-profile
 dalvik.vm.dexopt-flags=m=y,o=y,u=n
 dalvik.vm.systemuicompilerfilter=speed-profile
 dalvik.vm.systemservercompilerfilter=speed-profile
+dalvik.vm.dexopt.secondary=true
 
 profiler.debugmonitor=false
 profiler.launch=false
@@ -222,9 +234,17 @@ TapDragInterval=0.1ms
 TapSlop=1px
 
 pm.sleep_mode=0
+pm.dexopt.install=speed-profile
+pm.dexopt.bg-dexopt=speed-profile
 power.saving.mode=0
 
 effect.reverb.pcm=1
 SurfaceOrientation=0
 QuietInterval=0.1ms
 
+sys.games.gt.prof=1
+sys.hwc.gpu_perf_mode=1
+
+dev.pm.gpu.render=1
+
+enable_optimize_refresh_rate=true
