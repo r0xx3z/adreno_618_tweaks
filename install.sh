@@ -51,6 +51,7 @@ unzip -o "$ZIPFILE" -d "$MODPATH" >&2
   
 cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
 cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
+cp -f $MODPATH/common/scripts/action.sh $MODPATH/action.sh
 cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
 cp -f $MODPATH/common/source/arm64 $MODPATH/SurfaceFlinger
 rm -rf $MODPATH/common
@@ -58,6 +59,7 @@ rm -rf $MODPATH/common
 set_permissions() {
   set_perm_recursive $MODPATH 0 0 0755 0644
   set_perm $MODPATH/service.sh 0 0 0777
+  set_perm $MODPATH/action.sh 0 0 0777
   set_perm $MODPATH/post-fs-data.sh 0 0 0777
   set_perm $MODPATH/SurfaceFlinger 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
