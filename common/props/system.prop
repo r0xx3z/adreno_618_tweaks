@@ -128,8 +128,6 @@ persist.camera.isp.debug=1
 persist.camera.sensor.debug=1
 persist.camera.debug.logfile=0
 persist.service.lgospd.enable=0
-persist.service.pcsync.enable=0
-persist.service.vsync.enable=0
 persist.service.fsync.enable=0
 persist.sys.strictmode.disable=true
 persist.sys.mqs.gps=0
@@ -174,8 +172,6 @@ persist.sampling_profiler=0
 persist.android.strictmode=0
 persist.vendor.qti.inputopts.movetouchslop=0.1
 
-debug.cpurend.vsync=false
-debug.gpurend.vsync=false
 debug.performance.tuning=0
 debug.cpu.performance.tuning=0
 debug.gpu.performance.tuning=0
