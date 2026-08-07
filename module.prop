@@ -1,9 +1,9 @@
 id=adrenogputweaks
 name=Adreno 618 GPU Tweaks
-version=v1.4
+version=v1.4-TESTING
 versionCode=14
 author=@Ll0rens
-description=Tweaks for GPU + LM + Thermal tuning + Spoofer: Snapdragon 8 Gen 2
+description=Tweaks for GPU + LM + SF + Thermal tuning
 updateJson=https://raw.githubusercontent.com/r0xx3z/adreno_618_tweaks/Non-spoof/update.json
 minMagisk=24.0
 banner=banner.png
