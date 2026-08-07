@@ -42,7 +42,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 | ----------------------- | :---------------------------------------------------------- |
 | SoC     		  | Qualcomm Snapdragon 732G  |
 | GPU     		  | Adreno 618                |
-| OS  | AOSP |
+| OS  | AOSP/HOS/MIUI |
 
 ---
 
