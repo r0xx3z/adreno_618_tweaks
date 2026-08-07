@@ -5,6 +5,8 @@ XX/08/26 V1.4
 - Added confirmation message
 - Vsync enabled
 - SurfaceFlinger Tweaks
+- Added action button
+- 
 
 20/07/26 V1.3
 - Add 33w for Sweet
