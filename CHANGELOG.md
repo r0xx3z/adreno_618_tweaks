@@ -3,6 +3,8 @@ XX/08/26 V1.4
 - Refactor: Install.sh
 - Added new tweaks
 - Added confirmation message
+- Vsync enabled
+- SurfaceFlinger Tweaks
 
 20/07/26 V1.3
 - Add 33w for Sweet
