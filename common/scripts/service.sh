@@ -689,6 +689,16 @@ find /sys/ -name log_ecn_error -exec sh -c 'echo "0" > "$1"' _ {} \;
 find /sys/ -name snapshot_crashdumper -exec sh -c 'echo "0" > "$1"' _ {} \;
 find /sys/kernel/debug/kgsl/kgsl-3d0/ -name '*log*' -exec sh -c 'echo "0" > "$1"' _ {} \;
 
+# SURFACEFLINGER SETTINGS
+#
+mode=120hz
+binary=/data/adb/modules/adrenogputweaks/SurfaceFlinger
+if [ ! -x "$binary" ]; then
+	chmod +x "$binary"
+fi
+"$binary" "--${mode}"
+######################################
+
 sleep 5
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
