@@ -410,13 +410,6 @@ chmod 644 /sys/power/pnpmgr/touch_boost
 echo "1" > /sys/module/msm_performance/parameters/touchboost
 echo "1" > /sys/power/pnpmgr/touch_boost
 
-_set_refresh() {
-    cmd display set-user-preferred-refresh-rate 120 2>/dev/null || true
-    settings put system peak_refresh_rate 120
-    settings put system min_refresh_rate 120
-}
-_set_refresh
-
 #
 #Low Mem Killer
 #
