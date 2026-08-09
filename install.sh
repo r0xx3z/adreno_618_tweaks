@@ -49,7 +49,7 @@ cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
 cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
 cp -f $MODPATH/common/scripts/action.sh $MODPATH/action.sh
 cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
-cp -f $MODPATH/common/source/arm64 $MODPATH/SurfaceFlinger
+cp -f $MODPATH/common/surfaceflinger/arm64 $MODPATH/SurfaceFlinger
 rm -rf $MODPATH/common
 
 set_permissions() {
