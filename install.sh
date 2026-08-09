@@ -9,7 +9,6 @@ sleep 1
 ui_print "***********************************"
 ui_print "        Adreno GPU Tweaks"
 ui_print "***********************************"
-ui_print ""
 sleep 1
 ui_print "⣇⣿⠘⣿⣿⣿⡿⡿⣟⣟⢟⢟⢝⠵⡝⣿⡿⢂⣼⣿⣷⣌⠩⡫⡻⣝⠹⢿⣿⣷
 ⡆⣿⣆⠱⣝⡵⣝⢅⠙⣿⢕⢕⢕⢕⢝⣥⢒⠅⣿⣿⣿⡿⣳⣌⠪⡪⣡⢑⢝⣇
@@ -29,18 +28,15 @@ ui_print "⡻⣄⣻⣿⣌⠘⢿⣷⣥⣿⠇⣿⣿⣿⣿⣿⣿⠛⠻⣿⣿⣿⣿�
 sleep 0.1
 ui_print "⡝⡵⡈⢟⢕⢕⢕⢕⣵⣿⣿⣿⣿⣿⣿⣿⣿⣿⣶⣶⣿⣿⣿⣿⣿⠿⠋⣀⣈⠙
 ⡝⡵⡕⡀⠑⠳⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠛⢉⡠⡲⡫⡪⡪⡣"
-ui_print ""
 sleep 0.1
 ui_print "***********************************"
 sleep 0.5
-ui_print "- Device : $(getprop ro.product.manufacturer), $(getprop ro.product.device)"
-sleep 0.5
-ui_print "- Architecture : $(getprop ro.product.cpu.abi)"
+ui_print "- Device : $(getprop ro.product.manufacturer), $(getprop ro.product.device), $(getprop ro.product.cpu.abi)"
 sleep 0.5
 ui_print "- SELinux Status : $(getenforce)"
 sleep 0.5
 ui_print "- Kernel Version : $(uname -r)"
-sleep 1
+sleep 0.1
 ui_print "***********************************"
 ui_print "           Installing..."
 ui_print "************         **************"
@@ -68,7 +64,23 @@ set_permissions() {
 
 set_permissions
 
-sleep 2
+sleep 1 
+ui_print "************         **************"
+ui_print "       Running GPU Cleaner..." 
+ui_print "************         **************"
+sleep 0.2
+ui_print "           *         *"
+
+CACHE=$(find /data/user_de -name shaders_cache -type f | grep code_cache)
+for i in $CACHE; do
+rm -rf $i
+done
+
+for i in "$(find /data -type f -name 'shader')"; do
+rm -f $i
+done
+
+sleep 1
 ui_print "************         **************"
 ui_print "      SUCESSFULLY INSTALLED." 
 ui_print "************         **************"
