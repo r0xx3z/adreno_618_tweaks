@@ -32,6 +32,10 @@ else
     mode="120hz"
 fi
 
+# Apply immediately 
+chmod 755 "$BINARY"
+"$BINARY" "--${mode}"
+
 sleep 0.5
 
 # Update the mode= line inside service.sh
