@@ -1,5 +1,4 @@
 #!/system/bin/sh
-
 until [ "$(getprop sys.boot_completed)" -eq 1 ]; do
   sleep 20
 done
@@ -631,7 +630,6 @@ setprop persist.sys.battery.temp_high 90
 
 # Universal Thermal Disabler
 echo 0 > /sys/class/thermal/thermal_zone*/mode
-sleep 1
 
 # Remove cache thermal
 rm -f /data/vendor/thermal/config
@@ -692,7 +690,7 @@ fi
 "$binary" "--${mode}"
 ######################################
 
-sleep 5
+sleep 1
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
 
