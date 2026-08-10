@@ -6,6 +6,7 @@ XX/08/26 V1.4
 - Vsync enabled
 - SurfaceFlinger Tweaks
 - Added action button
+- Added GPU Cleaner 
 - 
 
 20/07/26 V1.3
