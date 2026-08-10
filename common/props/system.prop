@@ -2,38 +2,21 @@
 
 com.qc.hardware=1
 
-ro.product.vendor.brand=Xiaomi
-ro.vendor.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
-ro.vendor.product.cpu.abilist32=armeabi-v7a,armeabi
-ro.vendor.product.cpu.abilist64=arm64-v8a
-ro.bionic.arch=arm64
-ro.bionic.cpu_variant=kryo
-ro.bionic.2nd_arch=arm
-ro.bionic.2nd_cpu_variant=cortex-a55
 ro.vendor.cabc.enable=false
 ro.vendor.bcbc.enable=false
 ro.vendor.dfps.enable=false
 ro.vendor.smart_dfps.enable=false
 ro.vendor.sdr.video.enable=true
 ro.vendor.hdr.video.enable=true
-ro.product.system_ext.manufacturer=QUALCOMM
-ro.system.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
-ro.system.product.cpu.abilist32=armeabi-v7a,armeabi
-ro.system.product.cpu.abilist64=arm64-v8a
-ro.product.product.manufacturer=QUALCOMM
-ro.odm.product.cpu.abilist=arm64-v8a,armeabi-v7a,armeabi
-ro.odm.product.cpu.abilist32=armeabi-v7a,armeabi
-ro.odm.product.cpu.abilist64=arm64-v8a
 ro.config.enable.hw_accel=true
 ro.config.hw_power_saving=0
 ro.config.sw_power_saving=0
 ro.config.cpu_power_saving=0
 ro.config.gpu_power_saving=0
-ro.config.display_power_saving=1
-ro.config.display_low_power_mode=1
+ro.config.display_power_saving=0
+ro.config.display_low_power_mode=0
 ro.audio.monitorRotation=false
 ro.vendor.audio.us.proximity=false
-ro.soc.manufacturer=Qualcomm
 ro.vendor.fps.switch.thermal=false
 ro.vendor.display.ad=0
 ro.com.google.locationfeatures=0
@@ -64,6 +47,8 @@ ro.vendor.mi_sf.pq_thermal=false
 ro.surface_flinger.max_frame_buffer_acquired_buffers=3
 ro.kernel.android.checkjni=0
 ro.vendor.touchfeature.gamemode.enable=true
+ro.max.fling_velocity=30000
+ro.lmk.debug=false
 
 vendor.gralloc.disable_ubwc=0
 vendor.perf.gestureflingboost.enable=1
@@ -191,3 +176,5 @@ sys.hwc.gpu_perf_mode=1
 dev.pm.gpu.render=1
 
 enable_optimize_refresh_rate=true
+
+view.scroll_friction=0.015
