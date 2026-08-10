@@ -9,7 +9,6 @@
 - SurfaceFlinger Tweaks
 - Vsync enabled
 - Refactor: Install.sh
- 
 - Unnecessary settings have been removed
 
 20/07/26 V1.3
