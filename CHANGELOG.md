@@ -1,13 +1,16 @@
-XX/08/26 V1.4
+10/08/26 V1.4 
+# This is the moment when you'll most need an optimized and tweakable kernel.
 - Added thermal disabler
-- Refactor: Install.sh
-- Added new tweaks
-- Added confirmation message
-- Vsync enabled
-- SurfaceFlinger Tweaks
 - Added action button
 - Added GPU Cleaner 
-- 
+- Added Kernel Tweaks
+- Added new tweaks
+- Added confirmation message
+- SurfaceFlinger Tweaks
+- Vsync enabled
+- Refactor: Install.sh
+ 
+- Unnecessary settings have been removed
 
 20/07/26 V1.3
 - Add 33w for Sweet
