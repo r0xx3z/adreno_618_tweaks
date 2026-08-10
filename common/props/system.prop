@@ -6,8 +6,6 @@ ro.vendor.cabc.enable=false
 ro.vendor.bcbc.enable=false
 ro.vendor.dfps.enable=false
 ro.vendor.smart_dfps.enable=false
-ro.vendor.sdr.video.enable=true
-ro.vendor.hdr.video.enable=true
 ro.config.enable.hw_accel=true
 ro.config.hw_power_saving=0
 ro.config.sw_power_saving=0
@@ -15,8 +13,6 @@ ro.config.cpu_power_saving=0
 ro.config.gpu_power_saving=0
 ro.config.display_power_saving=0
 ro.config.display_low_power_mode=0
-ro.audio.monitorRotation=false
-ro.vendor.audio.us.proximity=false
 ro.vendor.fps.switch.thermal=false
 ro.vendor.display.ad=0
 ro.com.google.locationfeatures=0
@@ -30,11 +26,9 @@ ro.kernel.checkjni=0
 ro.kernel.android.checkjni=false
 ro.vendor.thermal.throttling.enable=false
 ro.vendor.perf.scroll_opt=true
-ro.vendor.radio.5g=3
 ro.vendor.audio.surround.support=true
 ro.vendor.platform.support.dolby=true
 ro.vendor.platform.support.dts=true
-ro.vendor.radio.features_common=3
 ro.vendor.thermal.dimming.enable=false
 ro.vendor.fps.switch.thermal=false
 ro.logd.size=1M
@@ -58,8 +52,8 @@ persist.floatwindow.support_all=true
 persist.camera.mct.debug=0
 persist.camera.iface.logs=0
 persist.camera.imglib.logs=0
-persist.camera.isp.debug=1
-persist.camera.sensor.debug=1
+persist.camera.isp.debug=0
+persist.camera.sensor.debug=0
 persist.camera.debug.logfile=0
 persist.service.lgospd.enable=0
 persist.service.fsync.enable=0
@@ -153,22 +147,10 @@ logcat.live=disable
 log.tag.stats_log=OFF
 logd.logpersistd.enable=false
 
-hwui.render_dirty_regions=false
-
-media.support.dolbyvision=true
-MovementSpeedRatio=0.8
-
-TapInterval=0.1ms
-TapDragInterval=0.1ms
-TapSlop=1px
-
 pm.sleep_mode=0
 pm.dexopt.install=speed-profile
 pm.dexopt.bg-dexopt=speed-profile
 power.saving.mode=0
-
-effect.reverb.pcm=1
-SurfaceOrientation=0
 
 sys.games.gt.prof=1
 sys.hwc.gpu_perf_mode=1
