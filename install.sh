@@ -52,6 +52,13 @@ cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
 cp -f $MODPATH/common/surfaceflinger/arm64 $MODPATH/SurfaceFlinger
 rm -rf $MODPATH/common
 
+BACKUP="$MODPATH/persist_backup.prop"
+: > "$BACKUP"
+for prop in $(grep -E '^persist\.' "$MODPATH/system.prop" | tr -d '\r' | cut -d= -f1 | sort -u); do
+  val=$(resetprop "$prop" 2>/dev/null)
+  [ -n "$val" ] && echo "$prop=$val" >> "$BACKUP"
+done
+
 set_permissions() {
   set_perm_recursive $MODPATH 0 0 0755 0644
   set_perm $MODPATH/service.sh 0 0 0777
