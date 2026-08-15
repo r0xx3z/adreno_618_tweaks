@@ -42,5 +42,5 @@ sleep 0.5
 sed -i "s/^mode=.*/mode=$mode/" "$SERVICE"
 echo "-> service.sh updated to: $mode"
 sleep 0.5
-echo "-> Reboot NOW!!."
+echo "-> Done."
 exit 0
