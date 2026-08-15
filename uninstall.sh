@@ -1,17 +1,13 @@
-# Don't modify anything after this
-if [ -f $INFO ]; then
-  while read LINE; do
-    if [ "$(echo -n $LINE | tail -c 1)" == "~" ]; then
-      continue
-    elif [ -f "$LINE~" ]; then
-      mv -f $LINE~ $LINE
-    else
-      rm -f $LINE
-      while true; do
-        LINE=$(dirname $LINE)
-        [ "$(ls -A $LINE 2>/dev/null)" ] && break 1 || rm -rf $LINE
-      done
-    fi
-  done < $INFO
-  rm -f $INFO
-fi
+#!/system/bin/sh
+MODDIR=${0%/*}
+BACKUP="$MODDIR/persist_backup.prop"
+PROPLIST=$(grep -E '^persist\.' "$MODDIR/system.prop" 2>/dev/null | tr -d '\r' | cut -d= -f1 | sort -u)
+
+for prop in $PROPLIST; do
+  orig=$(grep "^$prop=" "$BACKUP" 2>/dev/null | cut -d= -f2-)
+  if [ -n "$orig" ]; then
+    resetprop -p "$prop" "$orig" 2>/dev/null
+  else
+    resetprop --delete "$prop" 2>/dev/null
+  fi
+done
