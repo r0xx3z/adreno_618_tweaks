@@ -231,32 +231,6 @@ echo "0-7" > /dev/cpuset/top-app/effective_cpus
 echo "0-3,4-7" > /dev/cpuset/kernel/cpus
 echo "0-3,4-7" > /dev/cpuset/kernel/effective_cpus
 #
-# Dev Stune Boost
-#
-write /dev/stune/background/schedtune.boost "20"
-write /dev/stune/background/schedtune.prefer_idle "0"
-write /dev/stune/background/schedtune.colocate "0"
-write /dev/stune/background/schedtune.sched_boost_enabled "1"
-write /dev/stune/foreground/schedtune.boost "50"
-write /dev/stune/foreground/schedtune.prefer_idle "0"
-write /dev/stune/foreground/schedtune.colocate "0"
-write /dev/stune/foreground/schedtune.sched_boost_no_override "1"
-write /dev/stune/foreground/schedtune.sched_boost_enabled "1"
-write /dev/stune/rt/schedtune.boost "20"
-write /dev/stune/rt/schedtune.prefer_idle "0"
-write /dev/stune/rt/schedtune.colocate "0"
-write /dev/stune/rt/schedtune.sched_boost_enabled "0"
-write /dev/stune/top-app/schedtune.boost "100"
-write /dev/stune/top-app/schedtune.prefer_idle "0"
-write /dev/stune/top-app/schedtune.colocate "0"
-write /dev/stune/top-app/schedtune.sched_boost_no_override "1"
-write /dev/stune/top-app/schedtune.sched_boost_enabled "1"
-write /dev/stune/schedtune.boost "20"
-write /dev/stune/schedtune.prefer_idle "0"
-write /dev/stune/schedtune.colocate "0"
-write /dev/stune/schedtune.sched_boost_no_override
-write /dev/stune/schedtune.sched_boost_enabled "1"
-#
 #CPU Overclock Parameters
 #
 chmod 644 /sys/module/msm_performance/parameters/cpu_oc
@@ -268,109 +242,12 @@ echo "Y" > /sys/module/msm_performance/parameters/cpu_ov
 echo "N" > /sys/module/msm_performance/parameters/cpu_uc
 echo "N" > /sys/module/msm_performance/parameters/cpu_uv
 #
-# CPU CONFIGS
-#
-echo "1" > /sys/devices/system/cpu/cpufreq/performance/boost  
-echo "0" > /sys/module/cpuidle/parameters/enable_mask
-echo "1" > /proc/sys/kernel/sched_cstate_aware
-echo "1000000" > /proc/sys/kernel/sched_latency_ns
-echo "0" > /d/tracing/tracing_on
-echo "0" > /proc/task_info/task_sched_info/task_sched_info_enable
-echo "0" > /sys/kernel/rcu_expedited 
-echo "0" > /sys/kernel/rcu_normal 
-echo "1" > /proc/sys/kernel/timer_migration 
-echo "0" > /proc/sys/kernel/hung_task_timeout_secs 
-#
 # Core_ctl
 #
 for corecpu in /sys/devices/system/cpu/cpu[1-7] /sys/devices/system/cpu/cpu1[0-7]; do
     [ -w "$corecpu/core_ctl/enable" ] && echo "1" > "$corecpu/core_ctl/enable"
     [ -w "$corecpu/core_ctl/core_ctl_boost" ] && echo "1" > "$corecpu/core_ctl/core_ctl_boost"
 done
-#
-# Schedulers
-#
-echo "1000000" > /proc/sys/kernel/sched_min_granularity_ns
-echo "1000000" > /proc/sys/kernel/sched_migration_cost_ns
-echo "0" > /proc/sys/kernel/sched_schedstats
-echo "5000000" > /proc/sys/kernel/sched_wakeup_granularity_ns
-echo "0" > /proc/sys/fs/dir-notify-enable
-#
-# Disable state
-#
-cstate=$(ls -d /sys/devices/system/cpu/*/cpuidle/*)
-for i in $cstate; do
- lock_val "1" $i/disable
-done
-#
-# Disable fsync
-#
-if [ -e /sys/kernel/dyn_fsync/Dyn_fsync_active ]; then
- lock_val "0" /sys/kernel/dyn_fsync/Dyn_fsync_active
-fi
-if [ -e /sys/class/misc/fsynccontrol/fsync_enabled ]; then
- lock_val "0" /sys/class/misc/fsynccontrol/fsync_enabled
-fi
-if [ -e /sys/module/sync/parameters/auto_fsync_delay_sec ]; then
- lock_val "0" /sys/module/sync/parameters/auto_fsync_delay_sec
-fi
-#
-# Disable async
-#
-if [ -e /sys/power/pm_async ]; then
- lock_val "0" /sys/power/pm_async
-fi
-#
-# KERNEL TUNING
-#
-if [ -d /sys/devices/system/cpu/bus_dcvs/LLCC ]; then
-    freq=$(cat /sys/devices/system/cpu/bus_dcvs/LLCC/available_frequencies | tr ' ' '\n' | sort -nr | head -n 1)
-    if [ -n "$freq" ]; then
-        for path in /sys/devices/system/cpu/bus_dcvs/LLCC/*/max_freq; do
-            echo $freq > "$path"
-        done
-        for path in /sys/devices/system/cpu/bus_dcvs/LLCC/*/min_freq; do
-            echo $freq > "$path"
-        done
-    fi
-fi
-
-if [ -d /sys/devices/system/cpu/bus_dcvs/L3 ]; then
-    freq=$(cat /sys/devices/system/cpu/bus_dcvs/L3/available_frequencies | tr ' ' '\n' | sort -nr | head -n 1)
-    if [ -n "$freq" ]; then
-        for path in /sys/devices/system/cpu/bus_dcvs/L3/*/max_freq; do
-            echo $freq > "$path"
-        done
-        for path in /sys/devices/system/cpu/bus_dcvs/L3/*/min_freq; do
-            echo $freq > "$path"
-        done
-    fi
-fi
-
-if [ -d /sys/devices/system/cpu/bus_dcvs/DDR ]; then
-    freq=$(cat /sys/devices/system/cpu/bus_dcvs/DDR/available_frequencies | tr ' ' '\n' | sort -nr | head -n 1)
-    if [ -n "$freq" ]; then
-        for path in /sys/devices/system/cpu/bus_dcvs/DDR/*/max_freq; do
-            echo $freq > "$path"
-        done
-        for path in /sys/devices/system/cpu/bus_dcvs/DDR/*/min_freq; do
-            echo $freq > "$path"
-        done
-    fi
-fi
-
-if [ -d /sys/devices/system/cpu/bus_dcvs/DDRQOS ]; then
-    freq=$(cat /sys/devices/system/cpu/bus_dcvs/DDRQOS/available_frequencies | tr ' ' '\n' | sort -nr | head -n 1)
-    if [ -n "$freq" ]; then
-        for path in /sys/devices/system/cpu/bus_dcvs/DDRQOS/*/max_freq; do
-            echo $freq > "$path"
-        done
-        for path in /sys/devices/system/cpu/bus_dcvs/DDRQOS/*/min_freq; do
-            echo $freq > "$path"
-        done
-    fi
-fi
-
 #
 #CPU Thermal Throttling
 #
@@ -737,26 +614,6 @@ setprop persist.sys.battery.temp_high 90
 
 # Universal Thermal Disabler
 echo 0 > /sys/class/thermal/thermal_zone*/mode
-
-su -c "stop mi_thermald"
-su -c "stop thermal-engine"
-su -c "stop vendor.thermal-engine"
-su -c "stop traced"
-su -c "stop tombstoned"
-su -c "stop tcpdump"
-su -c "stop cnss_diag"
-su -c "stop statsd"
-su -c "stop vendor.perfservice"
-su -c "stop logcat"
-su -c "stop logcatd"
-su -c "stop logd"
-su -c "stop idd-logreader"
-su -c "stop idd-logreadermain"
-su -c "stop stats"
-su -c "stop dumpstate"
-su -c "stop vendor.tcpdump"
-su -c "stop vendor_tcpdump"
-su -c "stop vendor.cnss_diag"
 
 # Remove cache thermal
 rm -f /data/vendor/thermal/config
