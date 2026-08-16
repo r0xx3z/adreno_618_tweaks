@@ -1,4 +1,4 @@
-# xx/08/26 V1.4 
+# 16/08/26 V1.4 
 ## This is the moment when you'll most need an optimized and tweakable kernel.
 - Added thermal disabler
 - Added action button
