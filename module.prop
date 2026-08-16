@@ -1,6 +1,6 @@
 id=adrenogputweaks
 name=Adreno 618 GPU Tweaks
-version=v1.4-TESTING
+version=v1.4
 versionCode=14
 author=@Ll0rens
 description=Tweaks: CPU + GPU + LM + SF + Thermal tuning
