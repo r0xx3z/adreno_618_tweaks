@@ -669,11 +669,6 @@ fi
 "$binary" "--${mode}"
 ######################################
 
-# Disable process reclaim
-if [ -e /sys/module/process_reclaim/parameters/enable_process_reclaim ]; then
- lock_val "0" /sys/module/process_reclaim/parameters/enable_process_reclaim
-fi
-
 sleep 1
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'A618T Successfully Installed!!'" > /dev/null 2>&1
