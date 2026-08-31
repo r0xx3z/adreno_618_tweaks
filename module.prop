@@ -1,9 +1,9 @@
 id=adrenogputweaks
 name=Adreno 618 GPU Tweaks
-version=v1.4
-versionCode=14
+version=v1.5-TESTING
+versionCode=15
 author=@Ll0rens
-description=Tweaks: CPU + GPU + LM + SF + Thermal tuning + Spoofer
+description=Tweaks: CPU + GPU + LM + SF + Thermal tuning + Vulkan driver (Mesa 26.2.0) + Spoofer 
 updateJson=https://raw.githubusercontent.com/r0xx3z/adreno_618_tweaks/Major/update.json
-minMagisk=24.0
+minMagisk=27.0
 banner=banner.png
