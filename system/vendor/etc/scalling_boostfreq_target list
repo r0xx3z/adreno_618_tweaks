@@ -5,4 +5,4 @@ system/vendor/bin/hardware/077 e
 
 #target list packages
 
-echo"high_speed_load=85" miperflock_activity_cfg.xml 0664 system/vendor/etc/
+echo "high_speed_load=75" miperflock_activity_cfg.xml 0664 system/vendor/etc/

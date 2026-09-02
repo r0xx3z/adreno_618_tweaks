@@ -5,6 +5,6 @@ system/vendor/bin/hardware/077 e
 
 #target list packages
 
-echo"high_speed_load=85" miperf_actvity_cfg.xml 0664 system/vendor/etc/
+echo"high_speed_load=75" miperf_actvity_cfg.xml 0664 system/vendor/etc/
 
-echo"high_speed_load=85" miperf_app_cfg.xml 0664 system/vendor/etc/
+echo"high_speed_load=75" miperf_app_cfg.xml 0664 system/vendor/etc/
