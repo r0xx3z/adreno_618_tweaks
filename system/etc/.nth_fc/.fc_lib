@@ -1,5 +1,4 @@
 #!/system/bin/sh
-#Fast Charge
 Write() {
     if [ -e ${3} ]; then
         chmod 0755 ${3}
@@ -12,6 +11,8 @@ chmod 755 /sys/module/qpnp_smbcharger/*/*
 chmod 755 /sys/module/dwc3_msm/*/*
 chmod 755 /sys/module/phy_msm_usb/*/*
 while true; do
+Write '1' > /sys/class/power_supply/bms/fastcharge_mode
+Write '1' > /sys/class/power_supply/battery/step_charging_enabled
 Write '1' > /sys/kernel/fast_charge/force_fast_charge
 Write '1' > /sys/kernel/fast_charge/failsafe
 Write '1' > /sys/class/power_supply/battery/allow_hvdcp3
@@ -63,4 +64,3 @@ Write '5000' > /sys/module/phy_msm_usb/parameters/lpm_disconnect_thresh
 sleep 1
 done
 }
-

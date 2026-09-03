@@ -1,5 +1,4 @@
 #!/system/bin/sh
-#Fast Charge
 Set_value()
 {
     if [[ -f "$2" ]];
@@ -18,7 +17,6 @@ done
 
 }
 FAST_CHARGE=<PROFILE>
-#FAST_CHARGE=6000
 FAST_CHARGE1=`expr $FAST_CHARGE + 1000`
 FC=`expr $FAST_CHARGE \* 1000`
 FCC=`expr $FAST_CHARGE1 \* 1000`
@@ -40,4 +38,3 @@ Fast_charge constant_charge_current_max
 
 sleep 5
 done
-
