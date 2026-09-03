@@ -43,6 +43,8 @@ ui_print "************         **************"
 sleep 0.2
 ui_print "           *         *"
 
+[ $(getprop ro.system.build.version.sdk) -lt 34 ] && echo "- Android 14+ is required!" && abort
+
 unzip -o "$ZIPFILE" -d "$MODPATH" >&2
   
 cp -f $MODPATH/common/scripts/service.sh $MODPATH/service.sh
@@ -67,6 +69,7 @@ set_permissions() {
   set_perm $MODPATH/SurfaceFlinger 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
+  set_perm $MODPATH/system/vendor/lib64/hw/vulkan.adreno.so 0 0 0777
 }
 
 set_permissions
@@ -78,14 +81,15 @@ ui_print "************         **************"
 sleep 0.2
 ui_print "           *         *"
 
-CACHE=$(find /data/user_de -name shaders_cache -type f | grep code_cache)
-for i in $CACHE; do
-rm -rf $i
-done
+find /data/user_de/*/*/*cache/* -iname "*shader*" -exec rm -rf {} +
+find /data/data/* -iname "*shader*" -exec rm -rf {} +
+find /data/data/* -iname "*graphitecache*" -exec rm -rf {} +
+find /data/data/* -iname "*gpucache*" -exec rm -rf {} +
+find /data_mirror/data*/*/*/*/* -iname "*shader*" -exec rm -rf {} +
+find /data_mirror/data*/*/*/*/* -iname "*graphitecache*" -exec rm -rf {} +
+find /data_mirror/data*/*/*/*/* -iname "*gpucache*" -exec rm -rf {} +
 
-for i in "$(find /data -type f -name 'shader')"; do
-rm -f $i
-done
+rm LICENSE CHANGELOG.md README.md
 
 sleep 1
 ui_print "************         **************"
