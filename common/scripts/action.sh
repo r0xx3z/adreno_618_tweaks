@@ -9,7 +9,7 @@ echo "  SurfaceFlinger refresh rate"
 echo "==============================="
 sleep 1
 
-#Automatically detect the screen refresh rate to set Surfaceflinger settings according to the Hz used
+# Automatically detect the screen refresh rate to set Surfaceflinger settings according to the Hz used
 raw=$(dumpsys display | grep -m1 'mActiveSfDisplayMode=' | grep -oE 'peakRefreshRate=[0-9]+(\.[0-9]+)?' | head -n1 | cut -d= -f2)
 
 if [ -z "$raw" ]; then

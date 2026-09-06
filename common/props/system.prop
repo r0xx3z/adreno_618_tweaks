@@ -99,10 +99,12 @@ ro.kernel.android.checkjni=0
 ro.vendor.touchfeature.gamemode.enable=true
 ro.max.fling_velocity=30000
 ro.lmk.debug=false
+ro.thermal_warmreset=false
 
 vendor.dolby.vision.support=true
 vendor.gralloc.disable_ubwc=0
 vendor.perf.gestureflingboost.enable=1
+vendor.gpu.thermal.temp=150
 
 persist.splitwindow.support_all=true
 persist.floatwindow.support_all=true
@@ -155,6 +157,7 @@ persist.device_config.runtime_native.usap_pool_enabled=true
 persist.sampling_profiler=0
 persist.android.strictmode=0
 persist.vendor.qti.inputopts.movetouchslop=0.1
+persist.sys.battery.temp_high=90
 
 debug.performance.tuning=0
 debug.cpu.performance.tuning=0
@@ -187,6 +190,7 @@ dalvik.vm.dexopt-flags=m=y,o=y,u=n
 dalvik.vm.systemuicompilerfilter=speed-profile
 dalvik.vm.systemservercompilerfilter=speed-profile
 dalvik.vm.dexopt.secondary=true
+dalvik.vm.dexopt.thermal-cutoff=false
 
 profiler.debugmonitor=false
 profiler.launch=false
@@ -211,6 +215,7 @@ power.saving.mode=0
 
 sys.games.gt.prof=1
 sys.hwc.gpu_perf_mode=1
+sys.thermal.enable=false
 
 dev.pm.gpu.render=1
 
