@@ -1,5 +1,6 @@
 # xx/xx/26 V1.5
-- Added: Vulkan driver Mesa 26.2.0
+- Added: Vulkan driver Mesa 26.2.3 (https://github.com/v3kt0r-87/Mesa-Turnip-Builder)
+- Added: OpenGL driver extracted from module v772
 - Code optimization in service.sh
 - Unnecessary settings have been removed
 

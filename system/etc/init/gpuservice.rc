@@ -1,7 +1,9 @@
 service gpu /system/bin/gpuservice
     class core
     user gpu_service
-    group graphics readtracefs
-    capabilities SYS_NICE SYS_RESOURCE
-    task_profiles MaxPerformance
-    writepid /dev/cpuset/foreground/tasks
+    group graphics drmrpc
+    ioprio be 0
+    task_profiles ProcessCapacityHigh MaxPerformance
+    priority -5
+    writepid /sys/fs/cgroup/top-app/tasks
+    writepid /dev/cpuset/top-app/tasks
