@@ -69,7 +69,8 @@ set_permissions() {
   set_perm $MODPATH/SurfaceFlinger 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
   set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
-  set_perm $MODPATH/system/vendor/lib64/hw/vulkan.adreno.so 0 0 0777
+  set_perm_recursive $MODPATH/system/vendor/lib  0 0 0755 0644 u:object_r:same_process_hal_file:s0
+  set_perm_recursive $MODPATH/system/vendor/lib64 0 0 0755 0644 u:object_r:same_process_hal_file:s0
 }
 
 set_permissions
@@ -88,8 +89,6 @@ find /data/data/* -iname "*gpucache*" -exec rm -rf {} +
 find /data_mirror/data*/*/*/*/* -iname "*shader*" -exec rm -rf {} +
 find /data_mirror/data*/*/*/*/* -iname "*graphitecache*" -exec rm -rf {} +
 find /data_mirror/data*/*/*/*/* -iname "*gpucache*" -exec rm -rf {} +
-
-rm LICENSE CHANGELOG.md README.md
 
 sleep 1
 ui_print "************         **************"
