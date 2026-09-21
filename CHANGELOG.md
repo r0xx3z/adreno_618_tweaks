@@ -1,6 +1,7 @@
 # xx/xx/26 V1.5
-- Added: Vulkan driver Mesa 26.2.3 (https://github.com/v3kt0r-87/Mesa-Turnip-Builder)
+- Added: Vulkan driver Mesa 26.3.2 (https://github.com/v3kt0r-87/Mesa-Turnip-Builder)
 - Added: OpenGL driver extracted from module v772 (https://drive.google.com/file/d/1LXWIYJ6pPTpI4UYSqH9PZh0ByKXp9N-s/view?usp=sharing)
+- Spoofed: Samsung Galaxy S25 Ultra and Adreno 830 spoof by ExoticGank (https://t.me/RedmiNote10ProCHAT/383106)
 - Code optimization in service.sh
 - Unnecessary settings have been removed
 
