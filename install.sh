@@ -53,7 +53,12 @@ cp -f $MODPATH/common/scripts/action.sh $MODPATH/action.sh
 cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
 cp -f $MODPATH/common/surfaceflinger/arm64 $MODPATH/SurfaceFlinger
 cp -f $MODPATH/common/eye.png $MODPATH/eye.png
-rm -rf $MODPATH/common banner.png README.md CHANGELOG.md LICENSE
+rm -rf \
+    "$MODPATH/common" \
+    "$MODPATH/banner.png" \
+    "$MODPATH/README.md" \
+    "$MODPATH/CHANGELOG.md" \
+    "$MODPATH/LICENSE"
 
 BACKUP="$MODPATH/persist_backup.prop"
 : > "$BACKUP"
@@ -68,8 +73,8 @@ set_permissions() {
   set_perm $MODPATH/action.sh 0 0 0777
   set_perm $MODPATH/post-fs-data.sh 0 0 0777
   set_perm $MODPATH/SurfaceFlinger 0 0 0777
-  set_perm $MODPATH/system/etc/.nth_fc/.fc_main.sh 0 0 0777
-  set_perm $MODPATH/system/etc/.nth_fc/.fc_lib 0 0 0777
+  set_perm $MODPATH/system/etc/ 0 0 0777
+  set_perm $MODPATH/system/vendor/etc/ 0 0 0777
   set_perm_recursive $MODPATH/system/vendor/lib  0 0 0755 0644 u:object_r:same_process_hal_file:s0
   set_perm_recursive $MODPATH/system/vendor/lib64 0 0 0755 0644 u:object_r:same_process_hal_file:s0
 }
@@ -101,3 +106,4 @@ sleep 0.2
 ui_print "************         **************"
 ui_print "           ¡REBOOT NOW!"
 ui_print "***********************************"
+rm -rf $MODPATH/install.sh
