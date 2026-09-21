@@ -52,7 +52,8 @@ cp -f $MODPATH/common/scripts/post-fs-data.sh $MODPATH/post-fs-data.sh
 cp -f $MODPATH/common/scripts/action.sh $MODPATH/action.sh
 cp -f $MODPATH/common/props/system.prop $MODPATH/system.prop
 cp -f $MODPATH/common/surfaceflinger/arm64 $MODPATH/SurfaceFlinger
-rm -rf $MODPATH/common
+cp -f $MODPATH/common/eye.png $MODPATH/eye.png
+rm -rf $MODPATH/common banner.png README.md CHANGELOG.md LICENSE
 
 BACKUP="$MODPATH/persist_backup.prop"
 : > "$BACKUP"
