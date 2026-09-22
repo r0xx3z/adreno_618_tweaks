@@ -5,6 +5,13 @@ done
 
 su -lp 2000 -c "cmd notification post -S bigtext -t 'Adreno 618 Tweaks' 'Tag' 'Installing...'" > /dev/null 2>&1
 
+# Check if the ROM used is HyperOS 4 to add the flag that prevents SystemUI crashes.
+ROM_VERSION="$(getprop ro.mi.os.version.name)"
+
+if [ "$ROM_VERSION" = "OS4.0" ]; then
+    setprop debug.sf.disable_hwc 1
+fi
+
 # Apply chmod
 apply_perm() {
     find "$1" -type f -exec chmod 644 {} + 2>/dev/null
