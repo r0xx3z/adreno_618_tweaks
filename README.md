@@ -14,13 +14,10 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
 # ⚡ Features ⚡
 
-## GPU/CPU performance boost ⏫
+## GPU/CPU performance boost and spoofing ⏫
   
 - Direct adjustments to system parameters to improve efficiency and graphics throughput.
-
-## GPU Spoofing 🎭
-
-- It simulates features of higher-end GPUs to unlock hidden functions in games and applications.
+- It simulates features of higher-end to unlock hidden functions in games and applications.
 
 ## Throttling reduction 🔥
   
@@ -28,7 +25,7 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 
  ## Scheduler optimization 🪛
   
-- Improves GPU load management for greater FPS stability.
+- Improves CPU/GPU load management for greater FPS stability.
 - Improved gaming experience
 - More stable FPS
 - Less stuttering
@@ -43,22 +40,6 @@ It is optimized for users seeking extreme performance, especially in gaming and 
 | SoC     		  | Qualcomm Snapdragon 732G  |
 | GPU     		  | Adreno 618                |
 | OS  | AOSP/HOS/MIUI |
-
----
-
-# Module installation ⏬
-
-1. Make sure you have:
-
-- Root 
-- Kernel compatible with modifications
-
-2. Flash:
-   
-- Magisk Manager
-- KernelSU/N Manager with Magic Mount
- 
-3. Reboot device 
 
 ---
 
@@ -77,7 +58,8 @@ It may increase:
 
 Use in conjunction with:
 
-- Optimized kernel
+- Meta module 
+- Kernel compatible with modifications
 - Maintain temperature monitoring
 - Hands and brain
 
